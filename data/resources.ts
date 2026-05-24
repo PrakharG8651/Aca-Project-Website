@@ -22,7 +22,7 @@ export const resources: Resource[] = [
   },
   {
     id: "res-003",
-    title: "Node.js Installattion",
+    title: "Node.js Installation",
     description: "What is node js and how it works will be explained in the lecutre.",
     url: "https://youtu.be/N6PjgN9licA?si=_lIFk-mDOd8A-EOq",
     tag: "video",

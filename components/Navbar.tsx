@@ -4,6 +4,21 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
+import { modules } from "@/data/modules";
+
+const TOTAL_WEEKS = 10;
+
+function getCurrentWeek(): number {
+  const activeModule = modules
+    .filter((m) => m.status === "active")
+    .sort((a, b) => b.week - a.week)[0];
+  if (activeModule) return activeModule.week;
+
+  const doneModule = modules
+    .filter((m) => m.status === "done")
+    .sort((a, b) => b.week - a.week)[0];
+  return doneModule ? doneModule.week : 1;
+}
 
 const navLinks = [
   { href: "/", label: "Announcements" },
@@ -90,7 +105,7 @@ export function Navbar() {
             className="hidden items-center gap-1.5 rounded border border-[#1f1f1f] bg-[#111111] px-2.5 py-1 font-mono text-[11px] text-[#6b7280] sm:flex"
           >
             <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[#4ade80]" />
-            Week 2 / 10
+            Week {getCurrentWeek()} / {TOTAL_WEEKS}
           </div>
 
           {/* Mobile menu button */}
@@ -179,7 +194,7 @@ export function Navbar() {
         <div className="border-t border-[#1f1f1f] px-4 py-3 sm:hidden">
           <div className="inline-flex items-center gap-1.5 rounded border border-[#1f1f1f] bg-[#111111] px-2.5 py-1 font-mono text-[11px] text-[#6b7280]">
             <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[#4ade80]" />
-            Week 2 / 10
+            Week {getCurrentWeek()} / {TOTAL_WEEKS}
           </div>
         </div>
       </div>
