@@ -3,7 +3,7 @@ import { StudentCard } from "@/components/StudentCard";
 
 export default function CohortPage() {
   return (
-    <div id="page-cohort">
+    <div id="page-cohort" className="animate-fade-in-up">
       {/* Header */}
       <div className="mb-8 sm:mb-10">
         <h1 className="font-mono text-xl font-semibold text-[#f9fafb] sm:text-2xl">
@@ -13,21 +13,21 @@ export default function CohortPage() {
           Students enrolled in the current bootcamp cohort.
         </p>
         {students.length > 0 && (
-          <div className="mt-3 inline-flex items-center gap-1.5 rounded-full border border-[#1f1f1f] bg-[#111111] px-2.5 py-1 font-mono text-[11px] text-[#6b7280]">
+          <div className="mt-3 inline-flex items-center gap-1.5 rounded-full border border-[#1f1f1f]/60 bg-[#111111]/80 px-2.5 py-1 font-mono text-[11px] text-[#6b7280] backdrop-blur-sm">
             {students.length} student{students.length !== 1 ? "s" : ""}
           </div>
         )}
       </div>
 
       {students.length > 0 ? (
-        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-3 stagger-children sm:grid-cols-2 lg:grid-cols-3">
           {students.map((s) => (
             <StudentCard key={s.id} student={s} />
           ))}
         </div>
       ) : (
         /* Empty state */
-        <div className="flex flex-col items-center justify-center rounded-xl border border-dashed border-[#1f1f1f] py-20">
+        <div className="flex flex-col items-center justify-center rounded-xl border border-dashed border-[#1f1f1f]/60 py-20 animate-fade-in">
           <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-[#111111]">
             <svg
               className="h-5 w-5 text-[#6b7280]"

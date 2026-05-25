@@ -38,30 +38,43 @@ export function AnnouncementCard({
     <article
       id={`announcement-${announcement.id}`}
       className={cn(
-        "group relative overflow-hidden rounded-xl border border-[#1f1f1f] bg-[#111111] transition-all duration-300 hover:border-[#2a2a2a] hover:shadow-[0_0_30px_rgba(74,222,128,0.03)]",
+        "group relative overflow-hidden rounded-xl border border-[#1f1f1f]/80 bg-[#111111]/80 backdrop-blur-sm transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]",
+        "hover:border-[#2a2a2a] hover:bg-[#131313] hover:shadow-[0_8px_40px_rgba(0,0,0,0.3),0_0_0_1px_rgba(74,222,128,0.04)]",
+        "hover:-translate-y-[1px]",
         className
       )}
     >
-      {/* Accent top line */}
+      {/* Accent top line with glow */}
       <div
         className="h-[2px] w-full"
         style={{
-          background: `linear-gradient(90deg, ${accentColor}, ${accentColor}40, transparent)`,
+          background: `linear-gradient(90deg, ${accentColor}, ${accentColor}60, ${accentColor}15, transparent)`,
         }}
       />
 
-      <div className="p-4 sm:p-6 lg:p-7">
+      {/* Subtle hover glow overlay */}
+      <div
+        className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+        style={{
+          background: `radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 0%), ${accentColor}04, transparent 40%)`,
+        }}
+      />
+
+      <div className="relative p-4 sm:p-6 lg:p-7">
         {/* Header row: priority + timestamp */}
         <div className="mb-4 flex flex-wrap items-center gap-2.5 sm:mb-5">
           {announcement.priority === "high" && (
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-red-500/10 px-2.5 py-1 font-mono text-[11px] uppercase tracking-wider text-red-400">
-              <span className="h-1 w-1 animate-pulse rounded-full bg-red-400" />
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-red-500/10 px-2.5 py-1 font-mono text-[11px] uppercase tracking-wider text-red-400 shadow-[inset_0_0_0_1px_rgba(248,113,113,0.15)]">
+              <span className="relative h-1 w-1">
+                <span className="absolute inset-0 animate-ping rounded-full bg-red-400 opacity-40" />
+                <span className="relative block h-1 w-1 rounded-full bg-red-400" />
+              </span>
               urgent
             </span>
           )}
           <div className="flex items-center gap-2 font-mono text-xs text-[#6b7280]">
             <svg
-              className="h-3 w-3"
+              className="h-3 w-3 opacity-60"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -76,7 +89,7 @@ export function AnnouncementCard({
             <span>{formatDate(announcement.date)}</span>
             <span className="text-[#2a2a2a]">·</span>
             <svg
-              className="h-3 w-3"
+              className="h-3 w-3 opacity-60"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -93,14 +106,14 @@ export function AnnouncementCard({
         </div>
 
         {/* Title */}
-        <h3 className="mb-2 font-mono text-lg font-semibold leading-snug text-[#f9fafb] transition-colors group-hover:text-[#4ade80] sm:text-xl">
+        <h3 className="mb-2 font-mono text-lg font-semibold leading-snug text-[#f9fafb] transition-colors duration-300 group-hover:text-[#4ade80] sm:text-xl">
           {announcement.title}
         </h3>
 
         {/* Goal callout */}
-        <div className="mb-5 flex items-start gap-3 rounded-lg bg-[#4ade80]/[0.04] px-4 py-3.5 border border-[#4ade80]/10">
+        <div className="mb-5 flex items-start gap-3 rounded-lg bg-[#4ade80]/[0.03] px-4 py-3.5 border border-[#4ade80]/[0.08] transition-colors duration-300 group-hover:bg-[#4ade80]/[0.05] group-hover:border-[#4ade80]/[0.12]">
           <svg
-            className="mt-0.5 h-4 w-4 shrink-0 text-[#4ade80]"
+            className="mt-0.5 h-4 w-4 shrink-0 text-[#4ade80] opacity-80"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -128,14 +141,15 @@ export function AnnouncementCard({
         </p>
 
         {/* Footer: author + tags */}
-        <div className="flex flex-wrap items-center justify-between gap-3 border-t border-[#1f1f1f] pt-4">
+        <div className="flex flex-wrap items-center justify-between gap-3 border-t border-[#1f1f1f]/60 pt-4">
           <div className="flex items-center gap-2.5">
             {/* Author avatar */}
             <div
-              className="flex h-7 w-7 items-center justify-center rounded-full font-mono text-[10px] font-bold"
+              className="flex h-7 w-7 items-center justify-center rounded-full font-mono text-[10px] font-bold transition-all duration-300 group-hover:scale-105"
               style={{
                 backgroundColor: `${accentColor}15`,
                 color: accentColor,
+                boxShadow: `0 0 0 1px ${accentColor}15`,
               }}
             >
               UP
@@ -155,7 +169,7 @@ export function AnnouncementCard({
               {announcement.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="rounded-full bg-[#1a1a1a] px-2 py-0.5 font-mono text-[10px] text-[#4a4a4a] transition-colors group-hover:text-[#6b7280]"
+                  className="rounded-full bg-[#1a1a1a] px-2 py-0.5 font-mono text-[10px] text-[#4a4a4a] transition-all duration-300 group-hover:bg-[#1f1f1f] group-hover:text-[#6b7280]"
                 >
                   #{tag}
                 </span>

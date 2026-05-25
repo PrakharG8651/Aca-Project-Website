@@ -3,7 +3,7 @@ import { ProjectSpec } from "@/components/ProjectSpec";
 
 export default function ProjectsPage() {
   return (
-    <div id="page-projects">
+    <div id="page-projects" className="animate-fade-in-up">
       {/* Header */}
       <div className="mb-8 sm:mb-10">
         <h1 className="font-mono text-xl font-semibold text-[#f9fafb] sm:text-2xl">
@@ -14,7 +14,7 @@ export default function ProjectsPage() {
           — architecture decisions made in early weeks impact these directly.
         </p>
         {projects.length > 0 && (
-          <div className="mt-3 inline-flex items-center gap-1.5 rounded-full border border-[#1f1f1f] bg-[#111111] px-2.5 py-1 font-mono text-[11px] text-[#6b7280]">
+          <div className="mt-3 inline-flex items-center gap-1.5 rounded-full border border-[#1f1f1f]/60 bg-[#111111]/80 px-2.5 py-1 font-mono text-[11px] text-[#6b7280] backdrop-blur-sm">
             <span className="h-1.5 w-1.5 rounded-full bg-[#fbbf24]" />
             {projects.length} project{projects.length !== 1 ? "s" : ""}
           </div>
@@ -22,13 +22,13 @@ export default function ProjectsPage() {
       </div>
 
       {projects.length > 0 ? (
-        <div className="space-y-4">
+        <div className="space-y-4 stagger-children">
           {projects.map((p) => (
             <ProjectSpec key={p.id} project={p} />
           ))}
         </div>
       ) : (
-        <div className="flex flex-col items-center justify-center rounded-xl border border-dashed border-[#1f1f1f] py-20">
+        <div className="flex flex-col items-center justify-center rounded-xl border border-dashed border-[#1f1f1f]/60 py-20 animate-fade-in">
           <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-[#111111]">
             <svg
               className="h-5 w-5 text-[#6b7280]"

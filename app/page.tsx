@@ -3,7 +3,7 @@ import { AnnouncementCard } from "@/components/AnnouncementCard";
 
 export default function AnnouncementsPage() {
   return (
-    <div id="page-announcements">
+    <div id="page-announcements" className="animate-fade-in-up">
       <div className="mb-8 sm:mb-10">
         <h1 className="font-mono text-xl font-semibold text-[#f9fafb] sm:text-2xl">
           Announcements
@@ -12,21 +12,24 @@ export default function AnnouncementsPage() {
           Latest updates from instructors and staff.
         </p>
         {announcements.length > 0 && (
-          <div className="mt-4 inline-flex items-center gap-2 rounded-full bg-[#111111] border border-[#1f1f1f] px-3 py-1.5 font-mono text-xs text-[#9ca3af]">
-            <span className="h-1.5 w-1.5 rounded-full bg-[#4ade80]" />
+          <div className="mt-4 inline-flex items-center gap-2 rounded-full bg-[#111111]/80 border border-[#1f1f1f]/60 px-3 py-1.5 font-mono text-xs text-[#9ca3af] backdrop-blur-sm">
+            <span className="relative h-1.5 w-1.5">
+              <span className="absolute inset-0 animate-ping rounded-full bg-[#4ade80] opacity-30" />
+              <span className="relative block h-1.5 w-1.5 rounded-full bg-[#4ade80]" />
+            </span>
             {announcements.length} update{announcements.length !== 1 ? "s" : ""}
           </div>
         )}
       </div>
 
       {announcements.length > 0 ? (
-        <div className="space-y-5">
+        <div className="space-y-5 stagger-children">
           {announcements.map((a) => (
             <AnnouncementCard key={a.id} announcement={a} />
           ))}
         </div>
       ) : (
-        <div className="flex flex-col items-center justify-center rounded-lg border border-dashed border-[#1f1f1f] py-16">
+        <div className="flex flex-col items-center justify-center rounded-xl border border-dashed border-[#1f1f1f]/60 py-16 animate-fade-in">
           <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-full bg-[#111111]">
             <svg
               className="h-5 w-5 text-[#6b7280]"

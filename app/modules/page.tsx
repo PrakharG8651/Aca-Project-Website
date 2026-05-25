@@ -14,7 +14,7 @@ const statusStyles: Record<
     label: "Completed",
   },
   active: {
-    dot: "bg-[#4ade80] animate-pulse",
+    dot: "bg-[#4ade80]",
     badge: "bg-[#4ade80]/10",
     badgeText: "text-[#4ade80]",
     label: "In Progress",
@@ -56,7 +56,7 @@ export default function ModulesPage() {
   const doneCount = modules.filter((m) => m.status === "done").length;
 
   return (
-    <div id="page-modules">
+    <div id="page-modules" className="animate-fade-in-up">
       {/* ── Page header ────────────────────────────────────── */}
       <div className="mb-8 sm:mb-12">
         <h1 className="font-mono text-xl font-semibold text-[#f9fafb] sm:text-2xl">
@@ -68,21 +68,24 @@ export default function ModulesPage() {
 
         {/* Stats row */}
         <div className="mt-5 flex flex-wrap items-center gap-2 sm:gap-3">
-          <div className="inline-flex items-center gap-2 rounded-full border border-[#1f1f1f] bg-[#111111] px-3 py-1.5 font-mono text-xs text-[#9ca3af]">
-            <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[#4ade80]" />
+          <div className="inline-flex items-center gap-2 rounded-full border border-[#1f1f1f]/60 bg-[#111111]/80 px-3 py-1.5 font-mono text-xs text-[#9ca3af] backdrop-blur-sm">
+            <span className="relative h-1.5 w-1.5">
+              <span className="absolute inset-0 animate-ping rounded-full bg-[#4ade80] opacity-30" />
+              <span className="relative block h-1.5 w-1.5 rounded-full bg-[#4ade80]" />
+            </span>
             Week {activeWeek} active
           </div>
-          <div className="inline-flex items-center gap-2 rounded-full border border-[#1f1f1f] bg-[#111111] px-3 py-1.5 font-mono text-xs text-[#9ca3af]">
+          <div className="inline-flex items-center gap-2 rounded-full border border-[#1f1f1f]/60 bg-[#111111]/80 px-3 py-1.5 font-mono text-xs text-[#9ca3af] backdrop-blur-sm">
             {doneCount}/10 completed
           </div>
-          <div className="inline-flex items-center gap-2 rounded-full border border-[#1f1f1f] bg-[#111111] px-3 py-1.5 font-mono text-xs text-[#9ca3af]">
+          <div className="inline-flex items-center gap-2 rounded-full border border-[#1f1f1f]/60 bg-[#111111]/80 px-3 py-1.5 font-mono text-xs text-[#9ca3af] backdrop-blur-sm">
             ~130 hours total
           </div>
         </div>
       </div>
 
       {/* ── Week cards timeline ────────────────────────────── */}
-      <div className="relative space-y-5 sm:space-y-6">
+      <div className="relative space-y-5 stagger-children sm:space-y-6">
         {modules.map((mod) => {
           const s = statusStyles[mod.status];
           const isLocked = mod.status === "locked";
@@ -92,17 +95,17 @@ export default function ModulesPage() {
               key={mod.id}
               id={`module-card-${mod.week}`}
               className={cn(
-                "group relative rounded-xl border transition-all duration-300",
+                "group relative overflow-hidden rounded-xl border transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]",
                 isLocked
-                  ? "border-[#1a1a1a] bg-[#0d0d0d] opacity-60"
-                  : "border-[#1f1f1f] bg-[#111111] hover:border-[#2a2a2a] hover:shadow-[0_0_40px_rgba(74,222,128,0.03)]"
+                  ? "border-[#1a1a1a]/60 bg-[#0d0d0d] opacity-55"
+                  : "border-[#1f1f1f]/80 bg-[#111111]/80 backdrop-blur-sm hover:border-[#2a2a2a] hover:bg-[#131313] hover:shadow-[0_8px_40px_rgba(0,0,0,0.3),0_0_0_1px_rgba(74,222,128,0.04)] hover:-translate-y-[1px]"
               )}
             >
               {/* Accent top line for active/done */}
               {!isLocked && (
                 <div
                   className={cn(
-                    "h-[2px] w-full rounded-t-xl",
+                    "h-[2px] w-full",
                     mod.status === "active"
                       ? "bg-gradient-to-r from-[#4ade80] via-[#4ade80]/40 to-transparent"
                       : "bg-gradient-to-r from-[#4ade80]/50 via-[#4ade80]/10 to-transparent"
@@ -110,22 +113,27 @@ export default function ModulesPage() {
                 />
               )}
 
-              <div className="p-4 sm:p-6 lg:p-7">
+              <div className="relative p-4 sm:p-6 lg:p-7">
                 {/* ── Header: week label + status ──────────── */}
                 <div className="mb-4 flex flex-wrap items-center justify-between gap-2 sm:mb-5">
                   <div className="flex items-center gap-2 sm:gap-3">
-                    <span
-                      className={cn(
-                        "h-2.5 w-2.5 rounded-full",
-                        s.dot
+                    <span className="relative">
+                      <span
+                        className={cn(
+                          "block h-2.5 w-2.5 rounded-full",
+                          s.dot
+                        )}
+                      />
+                      {mod.status === "active" && (
+                        <span className="absolute inset-0 animate-ping rounded-full bg-[#4ade80] opacity-30" />
                       )}
-                    />
+                    </span>
                     <span className="font-mono text-xs uppercase tracking-widest text-[#9ca3af] sm:text-sm">
                       Week {mod.week}
                     </span>
                     <span
                       className={cn(
-                        "rounded px-2 py-0.5 font-mono text-[11px] uppercase tracking-wider",
+                        "rounded-full px-2 py-0.5 font-mono text-[11px] uppercase tracking-wider transition-colors duration-300",
                         s.badge,
                         s.badgeText
                       )}
@@ -133,7 +141,7 @@ export default function ModulesPage() {
                       {s.label}
                     </span>
                   </div>
-                  <span className="rounded-full border border-[#1f1f1f] bg-[#0d0d0d] px-2.5 py-1 font-mono text-xs text-[#6b7280]">
+                  <span className="rounded-full border border-[#1f1f1f]/60 bg-[#0d0d0d] px-2.5 py-1 font-mono text-xs text-[#6b7280]">
                     {mod.timeRequired}
                   </span>
                 </div>
@@ -144,7 +152,7 @@ export default function ModulesPage() {
                     "mb-2 font-mono text-lg font-semibold leading-snug sm:text-xl",
                     isLocked
                       ? "text-[#6b7280]"
-                      : "text-[#f9fafb] transition-colors group-hover:text-[#4ade80]"
+                      : "text-[#f9fafb] transition-colors duration-300 group-hover:text-[#4ade80]"
                   )}
                 >
                   {mod.title}
@@ -154,9 +162,9 @@ export default function ModulesPage() {
                 </p>
 
                 {/* ── Primary goal callout ─────────────────── */}
-                <div className="mb-5 flex items-start gap-3 rounded-lg border border-[#4ade80]/10 bg-[#4ade80]/[0.04] px-4 py-3.5 sm:mb-6">
+                <div className="mb-5 flex items-start gap-3 rounded-lg border border-[#4ade80]/[0.08] bg-[#4ade80]/[0.03] px-4 py-3.5 transition-colors duration-300 group-hover:bg-[#4ade80]/[0.05] group-hover:border-[#4ade80]/[0.12] sm:mb-6">
                   <svg
-                    className="mt-0.5 h-4 w-4 shrink-0 text-[#4ade80] sm:h-5 sm:w-5"
+                    className="mt-0.5 h-4 w-4 shrink-0 text-[#4ade80] opacity-80 sm:h-5 sm:w-5"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -192,7 +200,7 @@ export default function ModulesPage() {
                         >
                           <span
                             className={cn(
-                              "mt-[8px] h-1.5 w-1.5 shrink-0 rounded-full",
+                              "mt-[8px] h-1.5 w-1.5 shrink-0 rounded-full transition-colors duration-300",
                               isLocked
                                 ? "bg-[#2a2a2a]"
                                 : mod.status === "done"
@@ -221,10 +229,10 @@ export default function ModulesPage() {
                       <span
                         key={topic}
                         className={cn(
-                          "rounded-full px-2.5 py-1 font-mono text-[11px]",
+                          "rounded-full px-2.5 py-1 font-mono text-[11px] transition-colors duration-300",
                           isLocked
                             ? "bg-[#141414] text-[#3a3a3a]"
-                            : "bg-[#1a1a1a] text-[#9ca3af]"
+                            : "bg-[#1a1a1a] text-[#9ca3af] group-hover:bg-[#1f1f1f] group-hover:text-[#d1d5db]"
                         )}
                       >
                         {topic}
@@ -235,7 +243,7 @@ export default function ModulesPage() {
 
                 {/* ── Resources ────────────────────────────── */}
                 {mod.resources.length > 0 && !isLocked && (
-                  <div className="border-t border-[#1f1f1f] pt-5">
+                  <div className="border-t border-[#1f1f1f]/60 pt-5">
                     <h3 className="mb-3 font-mono text-[11px] uppercase tracking-[0.15em] text-[#6b7280] sm:text-xs">
                       Resources
                     </h3>
@@ -246,10 +254,10 @@ export default function ModulesPage() {
                           href={res.url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex items-center gap-3 rounded-lg border border-[#1a1a1a] bg-[#0d0d0d] px-3.5 py-3 transition-all hover:border-[#2a2a2a] hover:bg-[#141414]"
+                          className="group/res flex items-center gap-3 rounded-lg border border-[#1a1a1a]/80 bg-[#0d0d0d] px-3.5 py-3 transition-all duration-300 hover:border-[#2a2a2a] hover:bg-[#141414] hover:shadow-[0_2px_12px_rgba(0,0,0,0.2)]"
                         >
                           <svg
-                            className="h-4 w-4 shrink-0 text-[#6b7280]"
+                            className="h-4 w-4 shrink-0 text-[#6b7280] transition-colors duration-300 group-hover/res:text-[#9ca3af]"
                             fill="none"
                             viewBox="0 0 24 24"
                             stroke="currentColor"
@@ -262,11 +270,11 @@ export default function ModulesPage() {
                             />
                           </svg>
                           <div className="min-w-0 flex-1">
-                            <span className="block truncate text-[13px] font-medium text-[#d1d5db] transition-colors hover:text-[#4ade80]">
+                            <span className="block truncate text-[13px] font-medium text-[#d1d5db] transition-colors duration-300 group-hover/res:text-[#4ade80]">
                               {res.title}
                             </span>
                           </div>
-                          <span className="shrink-0 rounded bg-[#1f1f1f] px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-[#6b7280]">
+                          <span className="shrink-0 rounded-full bg-[#1a1a1a] px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-[#6b7280]">
                             {resourceLabel[res.type]}
                           </span>
                         </a>
