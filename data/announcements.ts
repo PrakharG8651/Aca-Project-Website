@@ -2,17 +2,18 @@ import type { Announcement } from "@/types";
 
 export const announcements: Announcement[] = [
   {
-    id: "ann-001",
-    title: "Welcome to RAS.DEVCAMP — Cohort 1 Kickoff",
-    goal: "Have a lecture on monday to understand the basics.",
+    id: "ann-002",
+    title: "Learning Javascript & Assignment",
+    goal: "Complete the js lecture and assignment 1 before next lecture.",
     content:
-      "We're officially live. Over the next 10 weeks you'll go from zero to shipping production grade full stack applications. Week 1 focuses on environment setup, Git workflows, and TypeScript fundamentals. Make sure your dev environment is configured before the first live session on Monday. If you hit blockers, drop them in the #setup channel.",
+      "Skim the js lecture uploaded. Try to understand Promises, callbacks, async-await and fetch will be covered in next lecture. The next lecture will cover some git basics, along with js concepts and making request from web. You are requested to complete assignment 1, the main js lecture before that.",
     author: "Ujjwal Prakash",
     role: "Mentor",
-    date: "2026-05-23",
-    time: "14:00",
+    date: "2026-05-26",
+    time: "22:00",
     priority: "high",
-    tags: ["kickoff", "week-1", "setup"],
+    tags: ["assignment", "week-1", "node.js"],
   },
+  
   
 ];

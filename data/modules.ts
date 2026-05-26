@@ -10,13 +10,14 @@ export const modules: Module[] = [
   status: "active",
   topics: ["JavaScript", "HTML", "CSS", "DOM", "Node.js", "Tools & Server"],
   assignmentCount: 3,
-  goal: "Get comfortable with JS basics and understand how HTML/CSS structure and style a web page. Set up your local environment with Node.js.",
+  goal: "Get comfortable with JS basics and understand how HTML/CSS structure and style a web page. Set up your local environment with Node.js. Learn DOM, how to manipulate html and css with js using dom.",
   learningOutcomes: [
     "Understand JavaScript fundamentals: variables, functions, loops, and scope",
     "Write semantic HTML5 markup and structure pages correctly",
     "Style pages with CSS selectors, properties, and the box model",
     "Install and understand the role of Node.js in a web dev workflow",
     "Inspect and debug layouts using browser DevTools",
+    "Learning DOM to manipulate html and css"
   ],
   timeRequired: "7–9 hours",
   resources: [
@@ -31,59 +32,71 @@ export const modules: Module[] = [
       type: "video",
     },
     {
+      title: "Learn DOM Manipulation",
+      url: "https://youtu.be/y17RuWkWdn8?si=0-sGvl_DLloF7Qu6",
+      type: "video",
+    },
+    {
+      title: "What is Node.js and how it works",
+      url: "https://youtu.be/q-xS25lsN3I?si=K2BpHuKfAWt8e8VR",
+      type: "video",
+    },
+    {
       title: "Node.js Installation",
       url: "https://youtu.be/N6PjgN9licA?si=_lIFk-mDOd8A-EOq",
       type: "video",
     },
   ],
 },
-  // {
-  //   id: "week-2",
-  //   week: 2,
-  //   title: "JavaScript Essentials",
-  //   description:
-  //     "Explore JavaScript from the ground up. Master variables, functions, control flow, DOM manipulation, and event handling to make web pages interactive.",
-  //   status: "locked",
-  //   topics: ["Variables & Types", "Functions & Scope", "DOM API", "Events", "ES6+ Syntax", "Array Methods"],
-  //   assignmentCount: 3,
-  //   goal: "Write JavaScript that makes web pages interactive and dynamic.",
-  //   learningOutcomes: [
-  //     "Declare variables with let/const and understand scope",
-  //     "Write functions (declarations, expressions, arrow functions)",
-  //     "Select and manipulate DOM elements programmatically",
-  //     "Attach event listeners and handle user interactions",
-  //     "Use ES6+ features: destructuring, spread, template literals, modules",
-  //     "Transform data with map, filter, reduce, and other array methods",
-  //   ],
-  //   timeRequired: "12–15 hours",
-  //   resources: [
-  //     {
-  //       title: "javascript.info — The Modern JavaScript Tutorial",
-  //       url: "https://javascript.info/",
-  //       type: "article",
-  //     },
-  //     {
-  //       title: "MDN — JavaScript Guide",
-  //       url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide",
-  //       type: "documentation",
-  //     },
-  //     {
-  //       title: "Eloquent JavaScript (free book)",
-  //       url: "https://eloquentjavascript.net/",
-  //       type: "article",
-  //     },
-  //     {
-  //       title: "JavaScript30 — 30 Day Vanilla JS Challenge",
-  //       url: "https://javascript30.com/",
-  //       type: "exercise",
-  //     },
-  //     {
-  //       title: "Fireship — JavaScript in 100 Seconds",
-  //       url: "https://www.youtube.com/watch?v=DHjqpvDnNGE",
-  //       type: "video",
-  //     },
-  //   ],
-  // },
+  {
+    id: "week-2",
+    week: 2,
+    title: "JavaScript Essentials & Git Basics",
+    description:
+      "Explore JavaScript from the ground up. Master Asynchronous JavaScript: Callbacks, Promises & Async/Await Made, functions.",
+    status: "active",
+    topics: ["Asynchronous Js", "Async/Await", "Fetch", "API", "ES6+ Syntax"],
+    assignmentCount: 3,
+    goal: "Write JavaScript that communicates with external APIs and handles asynchronous operations.",
+    learningOutcomes: [
+      "Understand the JavaScript event loop and why asynchronous code exists",
+      "Work with Promises: chaining .then()/.catch() and handling rejections",
+      "Write clean async functions using async/await syntax",
+      "Handle errors gracefully in async contexts with try/catch",
+      "Make HTTP requests using the Fetch API and read JSON responses",
+      "Consume real-world REST APIs and integrate data into the DOM",
+      "Use ES6+ syntax: destructuring, spread, template literals, and arrow functions in async contexts",
+      "Understand the difference between parallel and sequential async execution (Promise.all vs await chaining)",
+    ],
+    timeRequired: "3–4 hours",
+    resources: [
+      {
+        title: "Git Tutorial For Dummies (15 mins)",
+        url: "https://youtu.be/mJ-qvsxPHpY?si=V_6HGBsl943Qn-2s",
+        type: "video",
+      },
+      {
+        title: "Master Asynchronous JavaScript (45 mins)",
+        url: "https://youtu.be/2pHQdjgSVUk?si=3ra1VoMAXsjn8N0M",
+        type: "video",
+      },
+      {
+        title: "Node.js Ultimate Beginner’s Guide in 7 Easy Steps (20 mins)",
+        url: "https://youtu.be/ENrzD9HAZK4?si=4NmEgZcmRcQSNMxu",
+        type: "video",
+      },
+      {
+        title: "Learn Fetch API (6 mins)",
+        url: "https://youtu.be/cuEtnrL9-H0?si=tX5o3NvZQos7IE-G",
+        type: "video",
+      },
+      {
+        title: "RESTful APIs (12 mins)",
+        url: "https://youtu.be/-MTSQjw5DrM?si=T9nHYLtBxTpxpeJc",
+        type: "video",
+      },
+    ],
+  },
   // {
   //   id: "week-3",
   //   week: 3,
