@@ -22,6 +22,44 @@ export default function AnnouncementsPage() {
         )}
       </div>
 
+      {/* ── Vibe of the Week ── */}
+      <div className="relative mb-10 overflow-hidden rounded-2xl border border-[#1f1f1f]/80 bg-[#0a0a0a]">
+        {/* top label bar */}
+        <div className="flex items-center justify-between border-b border-[#1f1f1f]/80 px-4 py-2.5">
+          <div className="flex items-center gap-2">
+            <span className="relative flex h-2 w-2">
+              <span className="absolute inset-0 animate-ping rounded-full bg-[#facc15] opacity-40" />
+              <span className="relative block h-2 w-2 rounded-full bg-[#facc15]" />
+            </span>
+            <span className="font-mono text-xs font-medium tracking-widest text-[#facc15] uppercase">
+              Vibe of the week
+            </span>
+          </div>
+          <span className="font-mono text-[10px] text-[#4a4a4a]">mood.gif</span>
+        </div>
+
+        {/* GIF wrapper */}
+        <div className="relative w-full">
+          {/* subtle gradient overlay at the bottom so it bleeds into the page */}
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-16 z-10 bg-gradient-to-t from-[#0a0a0a] to-transparent" />
+
+          <img
+            src="/assets/art.gif"
+            alt="Vibe of the week"
+            className="w-full object-cover"
+            style={{ maxHeight: "340px", objectPosition: "center" }}
+            draggable={false}
+          />
+        </div>
+
+        {/* bottom caption */}
+        <div className="border-t border-[#1f1f1f]/60 px-4 py-3">
+          <p className="font-mono text-[11px] text-[#4a4a4a] tracking-wide">
+            //Lol, somebody is having ideas.
+          </p>
+        </div>
+      </div>
+
       {announcements.length > 0 ? (
         <div className="space-y-5 stagger-children">
           {announcements.map((a) => (

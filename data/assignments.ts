@@ -12,19 +12,19 @@ export const assignments: Assignment[] = [
     problem_statement:
       "Build a CLI program that takes a student name + exam scores as arguments, processes them through a Student class, and prints a formatted report card.",
     learning_objectives: [
-      "ES6 classes with getters and methods",
-      "Template literals for formatted output",
-      "Array destructuring with rest syntax",
-      "Switch statements and ternary operators",
+      "Before anything watch the node js lectures explained in week 1 and week 2.",
+      "Do the research first before writing a line of code.",
+      "Syntax of Js and enough understanding for later.",
+      "How to take input and output.",
       "Self-research: process.argv",
     ],
     approach: [
-      "Research process.argv — understand how Node.js receives CLI input",
-      "Build the Student class first (P1) — test it with hardcoded data",
-      "Wire up argv parsing (P2) — read name + scores from the terminal",
-      "Add input validation — exit early if less than 3 scores",
-      "Build the formatted output (P3) — template literals only",
-      "Test with multiple inputs, then attempt the bonus if time permits",
+      "Research process.argv",
+      "Build the Student class first (P1), try to test it with hardcoded data",
+      "Wire up argv parsing (P2), here you take arguments with the terminal",
+      "Add input validation, exit early if less than 3 scores",
+      "Build the formatted output (P3), template literals only",
+      "The oops concepts used are very important for upcoming parts."
     ],
     self_research: {
       required: [
@@ -147,13 +147,12 @@ export const assignments: Assignment[] = [
       minimum_scores_required: 3,
     },
     submission: {
-      format: "Upload to the class portal.",
+      format: "Research how github works and git workflow, the 15 video in resource section is enough.",
       include_in_submission: [
-        "Your .js file (and .json if bonus attempted)",
-        "Terminal screenshot with 2 different inputs",
-        "A 2–3 line comment at top explaining process.argv",
+        "Repo should be named 'assignmentFULLSTACK'.",
+        "make a folder inside it github 'assignment1', write all the code there. "
       ],
-      do_not_submit: ["node_modules", ".env files"],
+      do_not_submit: ["node_modules"],
     },
   },
 ];

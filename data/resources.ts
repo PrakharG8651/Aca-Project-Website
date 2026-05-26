@@ -20,13 +20,23 @@ export const resources: Resource[] = [
     tagColor: "#60a5fa",
     week: 1,
   },
+  
+    {
+    id: "res-003",
+    title: "What is Node.js and how it works",
+    description: "Explanation of how node js works.",
+    url: "https://youtu.be/q-xS25lsN3I?si=K2BpHuKfAWt8e8VR",
+    tag: "video",
+    tagColor: "#1e3f68ff",
+    week: 1,
+  },
   {
     id: "res-003",
     title: "Node.js Installattion",
     description: "What is node js and how it works will be explained in the lecutre.",
     url: "https://youtu.be/N6PjgN9licA?si=_lIFk-mDOd8A-EOq",
     tag: "video",
-    tagColor: "#60a5fa",
+    tagColor: "#b2cdeeff",
     week: 1,
   },
   {
@@ -35,7 +45,7 @@ export const resources: Resource[] = [
     description: "How to manipulate html and css from js. Its super important for react js.",
     url: "https://youtu.be/y17RuWkWdn8?si=gzH2lkf55IKsIH1y",
     tag: "video",
-    tagColor: "#60a5fa",
+    tagColor: "#5d7e5eff",
     week: 1,
   },
   {

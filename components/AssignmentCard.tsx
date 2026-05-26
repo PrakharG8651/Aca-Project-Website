@@ -203,7 +203,7 @@ export function AssignmentCard({ assignment }: { assignment: Assignment }) {
           </div>
           <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 shrink-0">
             <span className="rounded-full border border-[#f87171]/20 bg-[#f87171]/[0.06] px-2 py-0.5 font-mono text-[10px] text-[#f87171] sm:py-1 sm:text-[11px]">
-              📅 Due {new Date(assignment.deadline + "T00:00:00").toLocaleDateString("en-US", { month: "short", day: "numeric" })}
+               Due {new Date(assignment.deadline + "T00:00:00").toLocaleDateString("en-US", { month: "short", day: "numeric" })}
             </span>
             <span className="rounded-full border border-[#1f1f1f]/60 bg-[#0d0d0d] px-2 py-0.5 font-mono text-[10px] text-[#6b7280] sm:py-1 sm:text-[11px]">
               ⏱ {assignment.estimated_time}
@@ -321,7 +321,7 @@ export function AssignmentCard({ assignment }: { assignment: Assignment }) {
                   <div key={t.topic} className="rounded-lg border border-[#60a5fa]/10 bg-[#60a5fa]/[0.03] px-3 py-2.5 sm:px-3.5 sm:py-3">
                     <p className="font-mono text-[13px] font-semibold text-[#60a5fa] mb-0.5 sm:text-sm">{t.topic}</p>
                     <p className="text-[12px] leading-relaxed text-[#9ca3af] mb-1.5 sm:text-[13px]">{t.why}</p>
-                    <p className="rounded bg-[#0a0a0a]/60 px-2 py-1 font-mono text-[10px] text-[#6b7280] sm:py-1.5 sm:text-[11px]">💡 {t.hint}</p>
+                    <p className="rounded bg-[#0a0a0a]/60 px-2 py-1 font-mono text-[10px] text-[#6b7280] sm:py-1.5 sm:text-[11px]"> {t.hint}</p>
                   </div>
                 ))}
               </div>
@@ -334,7 +334,7 @@ export function AssignmentCard({ assignment }: { assignment: Assignment }) {
                     <div key={t.topic} className="rounded-lg border border-[#a78bfa]/10 bg-[#a78bfa]/[0.03] px-3 py-2.5 sm:px-3.5 sm:py-3">
                       <p className="font-mono text-[13px] font-semibold text-[#a78bfa] mb-0.5 sm:text-sm">{t.topic}</p>
                       <p className="text-[12px] leading-relaxed text-[#9ca3af] mb-1.5 sm:text-[13px]">{t.why}</p>
-                      <p className="rounded bg-[#0a0a0a]/60 px-2 py-1 font-mono text-[10px] text-[#6b7280] sm:py-1.5 sm:text-[11px]">💡 {t.hint}</p>
+                      <p className="rounded bg-[#0a0a0a]/60 px-2 py-1 font-mono text-[10px] text-[#6b7280] sm:py-1.5 sm:text-[11px]"> {t.hint}</p>
                     </div>
                   ))}
                 </div>
