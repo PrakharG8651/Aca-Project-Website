@@ -94,3 +94,69 @@ export interface Project {
   objectives: string[];
   learningOutcomes: string[];
 }
+
+// ─── Assignments ───────────────────────────────────────────
+export type AssignmentDifficulty =
+  | "easy"
+  | "medium"
+  | "medium-hard"
+  | "hard"
+  | "challenge";
+
+export interface AssignmentResearchTopic {
+  topic: string;
+  why: string;
+  hint: string;
+}
+
+export interface AssignmentSubpart {
+  id: string;
+  title: string;
+  description: string;
+  concepts_used: string[];
+  restriction?: string;
+}
+
+export interface AssignmentPart {
+  id: string;
+  title: string;
+  difficulty: string;
+  optional?: boolean;
+  description?: string;
+  subparts?: AssignmentSubpart[];
+  sample_input_format?: unknown;
+  concepts_used?: string[];
+}
+
+export interface AssignmentDeliverables {
+  required_files: string[];
+  bonus_files?: string[];
+  run_command: string;
+  minimum_scores_required?: number;
+}
+
+export interface AssignmentSubmission {
+  format: string;
+  include_in_submission: string[];
+  do_not_submit: string[];
+}
+
+export interface Assignment {
+  id: string;
+  title: string;
+  course: string;
+  runtime: string;
+  difficulty: AssignmentDifficulty;
+  estimated_time: string;
+  deadline: string; // ISO date string e.g. "2026-06-01"
+  problem_statement: string;
+  learning_objectives: string[];
+  approach: string[]; // step-by-step strategy
+  self_research: {
+    required: AssignmentResearchTopic[];
+    bonus?: AssignmentResearchTopic[];
+  };
+  parts: AssignmentPart[];
+  deliverables: AssignmentDeliverables;
+  submission: AssignmentSubmission;
+}

@@ -22,6 +22,7 @@ function getCurrentWeek(): number {
 
 const navLinks = [
   { href: "/", label: "Announcements" },
+  { href: "/assignments", label: "Assignments" },
   { href: "/modules", label: "Modules" },
   { href: "/resources", label: "Resources" },
   { href: "/cohort", label: "Cohort" },
