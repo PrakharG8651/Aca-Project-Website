@@ -150,9 +150,10 @@ export const assignments: Assignment[] = [
       format: "Research how github works and git workflow, the 15 video in resource section is enough.",
       include_in_submission: [
         "Repo should be named 'assignmentFULLSTACK'.",
-        "make a folder inside it github 'assignment1', write all the code there. "
+        "Make a folder 'assignment1', write all the code there and then push it to github.",
+        "Make sure to use .gitignore."
       ],
-      do_not_submit: ["node_modules"],
+      do_not_submit: ["node_modules (use .gitignore)"],
     },
   },
 ];
