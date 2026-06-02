@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Geist_Mono } from "next/font/google";
 import { Navbar } from "@/components/Navbar";
-import { Sidebar } from "@/components/Sidebar";
+import { SidebarWrapper } from "@/components/SidebarWrapper";
 import { LenisProvider } from "@/components/LenisProvider";
 import "lenis/dist/lenis.css";
 import "./globals.css";
@@ -37,12 +37,7 @@ export default function RootLayout({
       <body className="min-h-full bg-[#0a0a0a] text-[#f9fafb]">
         <LenisProvider>
           <Navbar />
-          <div className="mx-auto flex max-w-[1320px] flex-col px-4 pt-[72px] sm:px-6 lg:flex-row lg:gap-8 lg:px-8">
-            <Sidebar />
-            <main id="main-content" className="min-w-0 flex-1 py-6 sm:py-8 lg:py-10">
-              {children}
-            </main>
-          </div>
+          <SidebarWrapper>{children}</SidebarWrapper>
         </LenisProvider>
       </body>
     </html>

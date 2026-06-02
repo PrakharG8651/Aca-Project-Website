@@ -1,96 +1,93 @@
 import { announcements } from "@/data/announcements";
-import { AnnouncementCard } from "@/components/AnnouncementCard";
+import Link from "next/link";
 
-export default function AnnouncementsPage() {
+function formatDate(dateStr: string): string {
+  const d = new Date(dateStr + "T00:00:00");
+  return d.toLocaleDateString("en-US", {
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+  });
+}
+
+export default function FrontPage() {
   return (
-    <div id="page-announcements" className="animate-fade-in-up">
-      <div className="mb-8 sm:mb-10">
-        <h1 className="font-mono text-xl font-semibold text-[#f9fafb] sm:text-2xl">
-          Announcements
-        </h1>
-        <p className="mt-2 text-sm leading-relaxed text-[#9ca3af] sm:text-base">
-          Latest updates from instructors and staff.
-        </p>
-        {announcements.length > 0 && (
-          <div className="mt-4 inline-flex items-center gap-2 rounded-full bg-[#111111]/80 border border-[#1f1f1f]/60 px-3 py-1.5 font-mono text-xs text-[#9ca3af] backdrop-blur-sm">
-            <span className="relative h-1.5 w-1.5">
-              <span className="absolute inset-0 animate-ping rounded-full bg-[#4ade80] opacity-30" />
-              <span className="relative block h-1.5 w-1.5 rounded-full bg-[#4ade80]" />
-            </span>
-            {announcements.length} update{announcements.length !== 1 ? "s" : ""}
-          </div>
-        )}
-      </div>
-
-      {/* ── Vibe of the Week ── */}
-      <div className="relative mb-10 overflow-hidden rounded-2xl border border-[#1f1f1f]/80 bg-[#0a0a0a]">
-        {/* top label bar */}
-        <div className="flex items-center justify-between border-b border-[#1f1f1f]/80 px-4 py-2.5">
-          <div className="flex items-center gap-2">
-            <span className="relative flex h-2 w-2">
-              <span className="absolute inset-0 animate-ping rounded-full bg-[#facc15] opacity-40" />
-              <span className="relative block h-2 w-2 rounded-full bg-[#facc15]" />
-            </span>
-            <span className="font-mono text-xs font-medium tracking-widest text-[#facc15] uppercase">
-              Vibe of the week
-            </span>
-          </div>
-          <span className="font-mono text-[10px] text-[#4a4a4a]">mood.gif</span>
-        </div>
-
-        {/* GIF wrapper */}
-        <div className="relative w-full">
-          {/* subtle gradient overlay at the bottom so it bleeds into the page */}
-          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-16 z-10 bg-gradient-to-t from-[#0a0a0a] to-transparent" />
-
+    <div id="page-front" className="editorial-front">
+      {/* ═══ HERO — GIF with title overlaid on the right ═══ */}
+      <section className="hero">
+        <div className="hero__media">
           <img
             src="/assets/art.gif"
-            alt="Vibe of the week"
-            className="w-full object-cover"
-            style={{ maxHeight: "340px", objectPosition: "center" }}
+            alt="Course visual"
+            className="hero__img"
             draggable={false}
           />
+          <div className="hero__fade" />
+          <div className="hero__fade-right" />
         </div>
 
-        {/* bottom caption */}
-        <div className="border-t border-[#1f1f1f]/60 px-4 py-3">
-          <p className="font-mono text-[11px] text-[#4a4a4a] tracking-wide">
-            //Lol, somebody is having ideas.
+        <div className="hero__content">
+          <span className="hero__tag">RAS.DEVCAMP — 2026</span>
+          <h1 className="hero__title">
+            Build,<br />
+            Ship,<br />
+            Run&nbsp;Systems
+          </h1>
+          <p className="hero__sub">
+            10-week full-stack engineering bootcamp.
           </p>
         </div>
-      </div>
+      </section>
 
-      {announcements.length > 0 ? (
-        <div className="space-y-5 stagger-children">
+      {/* ═══ FEED — Airbnb-style cards ═══ */}
+      <section className="feed-section">
+        <div className="feed-section__header">
+          <h2 className="feed-section__title">Latest Dispatches</h2>
+          <Link href="/modules" className="feed-section__link">
+            View All →
+          </Link>
+        </div>
+
+        <div className="feed-grid">
           {announcements.map((a) => (
-            <AnnouncementCard key={a.id} announcement={a} />
+            <article key={a.id} className="elegant-card">
+              {/* Fake image block for aesthetic balance */}
+              <div className={`elegant-card__top ${a.priority === "high" ? "elegant-card__top--urgent" : ""}`}>
+                <div className="elegant-card__top-tags">
+                  {a.tags.slice(0, 2).map((tag) => (
+                    <span key={tag} className="elegant-card__pill">{tag}</span>
+                  ))}
+                </div>
+                {a.priority === "high" && (
+                  <div className="elegant-card__star">★ Urgent</div>
+                )}
+              </div>
+              
+              <div className="elegant-card__body">
+                <div className="elegant-card__title-row">
+                  <h3 className="elegant-card__title">{a.title}</h3>
+                  <span className="elegant-card__outline-pill">Read</span>
+                </div>
+                
+                <p className="elegant-card__meta">
+                  {formatDate(a.date)} • {a.author}
+                </p>
+                
+                <p className="elegant-card__desc">
+                  {a.goal}
+                </p>
+                
+                <div className="elegant-card__footer">
+                  <span className="elegant-card__id-label">Update #{a.id}</span>
+                  <button className="elegant-card__action">
+                    Open <span className="elegant-card__action-icon">↗</span>
+                  </button>
+                </div>
+              </div>
+            </article>
           ))}
         </div>
-      ) : (
-        <div className="flex flex-col items-center justify-center rounded-xl border border-dashed border-[#1f1f1f]/60 py-16 animate-fade-in">
-          <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-full bg-[#111111]">
-            <svg
-              className="h-5 w-5 text-[#6b7280]"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth={1.5}
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M10.34 15.84c-.688-.06-1.386-.09-2.09-.09H7.5a4.5 4.5 0 1 1 0-9h.75c.704 0 1.402-.03 2.09-.09m0 9.18c.253.962.584 1.892.985 2.783.247.55.06 1.21-.463 1.511l-.657.38c-.551.318-1.26.117-1.527-.461a20.845 20.845 0 0 1-1.44-4.282m3.102.069a18.03 18.03 0 0 1-.59-4.59c0-1.586.205-3.124.59-4.59m0 9.18a23.848 23.848 0 0 1 8.835 2.535M10.34 6.66a23.847 23.847 0 0 0 8.835-2.535m0 0A23.74 23.74 0 0 0 18.795 3m.38 1.125a23.91 23.91 0 0 1 1.014 5.395m-1.014 8.855c-.118.38-.245.754-.38 1.125m.38-1.125a23.91 23.91 0 0 0 1.014-5.395m0-3.46c.495.413.811 1.035.811 1.73 0 .695-.316 1.317-.811 1.73m0-3.46a24.347 24.347 0 0 1 0 3.46"
-              />
-            </svg>
-          </div>
-          <p className="font-mono text-sm text-[#6b7280]">
-            No announcements yet
-          </p>
-          <p className="mt-1 text-xs text-[#4a4a4a]">
-            Check back after the first session.
-          </p>
-        </div>
-      )}
+      </section>
     </div>
   );
 }
