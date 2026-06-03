@@ -117,9 +117,9 @@ export function DesktopSidebar() {
   return (
     <aside
       id="week-sidebar"
-      className="w-[240px] shrink-0 border-r border-[#1f1f1f]/50 pr-6"
+      className="w-[240px] shrink-0 border-r border-[#1f1f1f]/50 pr-6 py-6 sm:py-8 lg:py-10"
     >
-      <div className="sticky top-[82px]">
+      <div className="sticky top-[100px]">
         <h2 className="mb-4 font-mono text-xs uppercase tracking-[0.2em] text-[#6b7280]">
           Progress Tracker
         </h2>
@@ -152,7 +152,7 @@ export function MobileSidebar() {
   const doneCount = modules.filter((m) => m.status === "done").length;
 
   return (
-    <div className="mb-6">
+    <div className="mb-6 pt-6 sm:pt-8">
       <button
         id="mobile-sidebar-toggle"
         onClick={() => setOpen((prev) => !prev)}

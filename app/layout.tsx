@@ -34,7 +34,7 @@ export default function RootLayout({
       data-scroll-behavior="smooth"
       className={`${inter.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full bg-[#0a0a0a] text-[#f9fafb]">
+      <body className="min-h-full bg-[#0a0a0a] text-[#f9fafb]" suppressHydrationWarning>
         <LenisProvider>
           <Navbar />
           <SidebarWrapper>{children}</SidebarWrapper>

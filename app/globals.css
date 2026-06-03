@@ -575,8 +575,8 @@ a, button {
 /* ── Responsive ───────────────────────────────────────── */
 @media (max-width: 768px) {
   .hero {
-    height: 50vh;
-    min-height: 280px;
+    height: 90vh;
+    min-height: 480px;
   }
 
   .hero__content {
@@ -599,8 +599,8 @@ a, button {
 
 @media (max-width: 480px) {
   .hero {
-    height: 45vh;
-    min-height: 240px;
+    height: 85vh;
+    min-height: 420px;
   }
 
   .hero__content {
