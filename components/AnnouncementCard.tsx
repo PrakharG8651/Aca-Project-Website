@@ -1,5 +1,6 @@
 import type { Announcement } from "@/types";
 import { cn } from "@/lib/utils";
+import Link from "next/link";
 
 interface AnnouncementCardProps {
   announcement: Announcement;
@@ -9,173 +10,177 @@ interface AnnouncementCardProps {
 function formatDate(dateStr: string): string {
   const d = new Date(dateStr + "T00:00:00");
   return d.toLocaleDateString("en-US", {
-    weekday: "short",
     month: "short",
     day: "numeric",
     year: "numeric",
   });
 }
 
-function formatTime(time: string): string {
-  const [h, m] = time.split(":").map(Number);
-  const ampm = h >= 12 ? "PM" : "AM";
-  const hour12 = h % 12 || 12;
-  return `${hour12}:${m.toString().padStart(2, "0")} ${ampm}`;
-}
+const variants = {
+  high: {
+    bannerBg: "linear-gradient(180deg, #12103a 0%, #0a0a0a 100%)",
+    bannerBorder: "rgba(124, 106, 212, 0.2)",
+    tagBorder: "rgba(124, 106, 212, 0.3)",
+    tagColor: "#a78bfa",
+    tagBg: "rgba(124, 106, 212, 0.1)",
+    badgeColor: "#d8b4fe",
+    badgeBg: "rgba(124, 106, 212, 0.15)",
+    badgeBorder: "rgba(124, 106, 212, 0.3)",
+    dotColor: "#d8b4fe",
+    titleColor: "#ffffff",
+    goalBorderLeft: "#2a245a",
+    btnOpenBg: "transparent",
+    btnOpenHover: "rgba(124, 106, 212, 0.1)",
+    bgTextOpacity: 0.03,
+    bgTextColor: "#7c6ad4",
+    accent: "#7c6ad4"
+  },
+  normal: {
+    bannerBg: "linear-gradient(180deg, #0a1a1a 0%, #081212 100%)",
+    bannerBorder: "#1a3030",
+    tagBorder: "#1a3535",
+    tagColor: "#5a9e9e",
+    tagBg: "rgba(40,120,120,0.12)",
+    badgeColor: "#5eead4",
+    badgeBg: "rgba(45,212,191,0.1)",
+    badgeBorder: "rgba(45,212,191,0.25)",
+    dotColor: "#5eead4",
+    titleColor: "#e4fafa",
+    goalBorderLeft: "#1a3535",
+    btnOpenBg: "#2a9090",
+    btnOpenHover: "#35aaaa",
+    bgTextOpacity: 0.05,
+    bgTextColor: "rgb(40,180,180)",
+    accent: "#5eead4"
+  },
+  low: {
+    bannerBg: "linear-gradient(180deg, #0f0f0f 0%, #0a0a0a 100%)",
+    bannerBorder: "#1a1a1a",
+    tagBorder: "#202020",
+    tagColor: "#505050",
+    tagBg: "rgba(60,60,60,0.1)",
+    badgeColor: "#6b7280",
+    badgeBg: "rgba(100,100,100,0.1)",
+    badgeBorder: "rgba(100,100,100,0.2)",
+    dotColor: "#6b7280",
+    titleColor: "#d4d4d4",
+    goalBorderLeft: "#222222",
+    btnOpenBg: "#3a3a3a",
+    btnOpenHover: "#4a4a4a",
+    bgTextOpacity: 0.03,
+    bgTextColor: "rgb(150,150,150)",
+    accent: "#6b7280"
+  }
+};
 
 export function AnnouncementCard({
   announcement,
   className,
 }: AnnouncementCardProps) {
-  const accentColor =
-    announcement.priority === "high"
-      ? "#f87171"
-      : announcement.priority === "normal"
-        ? "#4ade80"
-        : "#6b7280";
+  const v = variants[announcement.priority] || variants.low;
 
   return (
     <article
       id={`announcement-${announcement.id}`}
+      style={{
+        background: v.bannerBg,
+        borderColor: v.bannerBorder,
+        '--hover-bg': v.btnOpenHover,
+      } as React.CSSProperties}
       className={cn(
-        "group relative overflow-hidden rounded-xl border border-[#1f1f1f]/80 bg-[#111111]/80 backdrop-blur-sm transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]",
-        "hover:border-[#2a2a2a] hover:bg-[#131313] hover:shadow-[0_8px_40px_rgba(0,0,0,0.3),0_0_0_1px_rgba(74,222,128,0.04)]",
-        "hover:-translate-y-[1px]",
+        "group relative overflow-hidden rounded-2xl border flex flex-col p-6 sm:p-7 gap-5",
+        "transition-all duration-300 hover:shadow-xl hover:-translate-y-1",
         className
       )}
     >
-      {/* Accent top line with glow */}
-      <div
-        className="h-[2px] w-full"
-        style={{
-          background: `linear-gradient(90deg, ${accentColor}, ${accentColor}60, ${accentColor}15, transparent)`,
-        }}
-      />
+      {/* Huge background text */}
+      <div 
+        className="absolute -right-4 -top-8 pointer-events-none select-none font-mono font-bold leading-none tracking-tighter z-0"
+        style={{ 
+          fontSize: '10rem', 
+          color: v.bgTextColor, 
+          opacity: v.bgTextOpacity,
+        }}>
+        {announcement.id.split('-')[1] || announcement.id}
+      </div>
 
-      {/* Subtle hover glow overlay */}
-      <div
-        className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
-        style={{
-          background: `radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 0%), ${accentColor}04, transparent 40%)`,
-        }}
-      />
-
-      <div className="relative p-4 sm:p-6 lg:p-7">
-        {/* Header row: priority + timestamp */}
-        <div className="mb-4 flex flex-wrap items-center gap-2.5 sm:mb-5">
-          {announcement.priority === "high" && (
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-red-500/10 px-2.5 py-1 font-mono text-[11px] uppercase tracking-wider text-red-400 shadow-[inset_0_0_0_1px_rgba(248,113,113,0.15)]">
-              <span className="relative h-1 w-1">
-                <span className="absolute inset-0 animate-ping rounded-full bg-red-400 opacity-40" />
-                <span className="relative block h-1 w-1 rounded-full bg-red-400" />
+      <div className="relative z-10 flex flex-col gap-4">
+        {/* Tags & Badge */}
+        <div className="flex justify-between items-start">
+          <div className="flex flex-wrap gap-2">
+            {announcement.tags.map(tag => (
+              <span 
+                key={tag} 
+                style={{ backgroundColor: v.tagBg, borderColor: v.tagBorder, color: v.tagColor }} 
+                className="border px-3 py-1 rounded-full text-xs font-mono font-medium"
+              >
+                {tag}
               </span>
-              urgent
-            </span>
-          )}
-          <div className="flex items-center gap-2 font-mono text-xs text-[#6b7280]">
-            <svg
-              className="h-3 w-3 opacity-60"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth={1.5}
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5"
-              />
-            </svg>
-            <span>{formatDate(announcement.date)}</span>
-            <span className="text-[#2a2a2a]">·</span>
-            <svg
-              className="h-3 w-3 opacity-60"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth={1.5}
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
-              />
-            </svg>
-            <span>{formatTime(announcement.time)}</span>
+            ))}
+          </div>
+          <div 
+            style={{ backgroundColor: v.badgeBg, borderColor: v.badgeBorder, color: v.badgeColor }} 
+            className="border px-3 py-1.5 rounded-full text-[10px] font-mono uppercase tracking-wider flex items-center gap-2 font-semibold"
+          >
+            <div style={{ backgroundColor: v.dotColor }} className="w-1.5 h-1.5 rounded-full shadow-[0_0_8px_currentColor]" />
+            {announcement.priority.toUpperCase()}
           </div>
         </div>
 
         {/* Title */}
-        <h3 className="mb-2 font-mono text-lg font-semibold leading-snug text-[#f9fafb] transition-colors duration-300 group-hover:text-[#4ade80] sm:text-xl">
+        <h3 style={{ color: v.titleColor }} className="text-2xl sm:text-3xl font-semibold tracking-tight leading-snug mt-2">
           {announcement.title}
         </h3>
 
-        {/* Goal callout */}
-        <div className="mb-5 flex items-start gap-3 rounded-lg bg-[#4ade80]/[0.03] px-4 py-3.5 border border-[#4ade80]/[0.08] transition-colors duration-300 group-hover:bg-[#4ade80]/[0.05] group-hover:border-[#4ade80]/[0.12]">
-          <svg
-            className="mt-0.5 h-4 w-4 shrink-0 text-[#4ade80] opacity-80"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            strokeWidth={2}
+        {/* Author Meta */}
+        <div className="flex items-center gap-3 text-[13px] text-[#888] font-mono mt-1">
+          <div 
+            style={{ backgroundColor: v.badgeBg, color: v.badgeColor }} 
+            className="w-7 h-7 rounded-full flex items-center justify-center font-bold text-[10px]"
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244"
-            />
-          </svg>
-          <div>
-            <span className="font-mono text-[11px] uppercase tracking-wider text-[#4ade80]/80">
-              Goal
-            </span>
-            <p className="mt-1 text-sm leading-relaxed text-[#d1d5db] sm:text-[15px]">
-              {announcement.goal}
-            </p>
+            {announcement.author.split(' ').map(n => n[0]).join('')}
           </div>
+          <span className="text-[#bbb]">{announcement.author}</span>
+          <span className="opacity-40">·</span>
+          <span>{announcement.role}</span>
+          <span className="opacity-40">·</span>
+          <span>{formatDate(announcement.date)}</span>
+          <span className="opacity-40">·</span>
+          <span>{announcement.time}</span>
         </div>
+      </div>
 
-        {/* Description body */}
-        <p className="mb-5 text-sm leading-[1.8] text-[#9ca3af] sm:text-[15px] sm:mb-6">
-          {announcement.content}
-        </p>
+      <div className="w-full h-px bg-white/5 my-2 relative z-10" />
 
-        {/* Footer: author + tags */}
-        <div className="flex flex-wrap items-center justify-between gap-3 border-t border-[#1f1f1f]/60 pt-4">
-          <div className="flex items-center gap-2.5">
-            {/* Author avatar */}
-            <div
-              className="flex h-7 w-7 items-center justify-center rounded-full font-mono text-[10px] font-bold transition-all duration-300 group-hover:scale-105"
-              style={{
-                backgroundColor: `${accentColor}15`,
-                color: accentColor,
-                boxShadow: `0 0 0 1px ${accentColor}15`,
-              }}
-            >
-              UP
-            </div>
-            <div className="flex flex-col">
-              <span className="text-[13px] font-medium text-[#f9fafb]">
-                {announcement.author}
-              </span>
-              <span className="font-mono text-[10px] text-[#4a4a4a]">
-                {announcement.role}
-              </span>
-            </div>
-          </div>
+      {/* Objective */}
+      <div className="relative z-10">
+        <div className="text-[10px] font-mono tracking-[0.2em] text-[#666] mb-3 uppercase font-medium">Objective</div>
+        <div style={{ borderLeftColor: v.goalBorderLeft }} className="pl-4 border-l-[3px] text-[#ccc] text-[15px] leading-relaxed">
+          {announcement.goal}
+        </div>
+      </div>
 
-          {announcement.tags.length > 0 && (
-            <div className="flex flex-wrap gap-1.5">
-              {announcement.tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="rounded-full bg-[#1a1a1a] px-2 py-0.5 font-mono text-[10px] text-[#4a4a4a] transition-all duration-300 group-hover:bg-[#1f1f1f] group-hover:text-[#6b7280]"
-                >
-                  #{tag}
-                </span>
-              ))}
-            </div>
-          )}
+      {/* Content */}
+      <div className="relative z-10 text-[#999] text-[15px] leading-relaxed mt-2 whitespace-pre-wrap">
+        {announcement.content}
+      </div>
+
+      <div className="w-full h-px bg-white/5 my-2 relative z-10" />
+
+      {/* Footer */}
+      <div className="relative z-10 flex justify-between items-center mt-1">
+        <div className="font-mono text-sm text-[#555]">
+          Update #{announcement.id}
+        </div>
+        <div className="flex gap-3">
+          <Link 
+            href="/modules"
+            style={{ backgroundColor: v.btnOpenBg }}
+            className="px-5 py-2.5 rounded-xl border border-white/10 text-white text-[13px] font-medium transition-colors flex items-center gap-2 group hover:bg-[var(--hover-bg)]"
+          >
+            Open
+            <span className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform">↗</span>
+          </Link>
         </div>
       </div>
     </article>

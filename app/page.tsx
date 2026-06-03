@@ -1,14 +1,7 @@
 import { announcements } from "@/data/announcements";
 import Link from "next/link";
+import { AnnouncementCard } from "@/components/AnnouncementCard";
 
-function formatDate(dateStr: string): string {
-  const d = new Date(dateStr + "T00:00:00");
-  return d.toLocaleDateString("en-US", {
-    month: "short",
-    day: "numeric",
-    year: "numeric",
-  });
-}
 
 export default function FrontPage() {
   return (
@@ -17,7 +10,7 @@ export default function FrontPage() {
       <section className="hero">
         <div className="hero__media">
           <img
-            src="/assets/art.gif"
+            src="/assets/art3.gif"
             alt="Course visual"
             className="hero__img"
             draggable={false}
@@ -50,41 +43,7 @@ export default function FrontPage() {
 
         <div className="feed-grid">
           {announcements.map((a) => (
-            <article key={a.id} className="elegant-card">
-              {/* Fake image block for aesthetic balance */}
-              <div className={`elegant-card__top ${a.priority === "high" ? "elegant-card__top--urgent" : ""}`}>
-                <div className="elegant-card__top-tags">
-                  {a.tags.slice(0, 2).map((tag) => (
-                    <span key={tag} className="elegant-card__pill">{tag}</span>
-                  ))}
-                </div>
-                {a.priority === "high" && (
-                  <div className="elegant-card__star">★ Urgent</div>
-                )}
-              </div>
-              
-              <div className="elegant-card__body">
-                <div className="elegant-card__title-row">
-                  <h3 className="elegant-card__title">{a.title}</h3>
-                  <span className="elegant-card__outline-pill">Read</span>
-                </div>
-                
-                <p className="elegant-card__meta">
-                  {formatDate(a.date)} • {a.author}
-                </p>
-                
-                <p className="elegant-card__desc">
-                  {a.goal}
-                </p>
-                
-                <div className="elegant-card__footer">
-                  <span className="elegant-card__id-label">Update #{a.id}</span>
-                  <button className="elegant-card__action">
-                    Open <span className="elegant-card__action-icon">↗</span>
-                  </button>
-                </div>
-              </div>
-            </article>
+            <AnnouncementCard key={a.id} announcement={a} />
           ))}
         </div>
       </section>
