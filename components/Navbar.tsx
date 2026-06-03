@@ -62,11 +62,11 @@ export function Navbar() {
     <header
       id="main-navbar"
       className={cn(
-        "fixed top-0 right-0 left-0 z-50 border-b transition-all duration-500",
-        scrolled
-          ? "border-[#1f1f1f]/80 bg-[#0a0a0a]/85 shadow-[0_4px_30px_rgba(0,0,0,0.4)]"
-          : "border-[#1f1f1f]/40 bg-[#0a0a0a]/60",
-        "backdrop-blur-xl"
+        "fixed top-0 right-0 left-0 z-50 border-b transition-all",
+        mobileOpen ? "duration-200" : "duration-500",
+        (scrolled || mobileOpen)
+          ? "border-[#1f1f1f]/80 bg-[#0a0a0a]/85 shadow-[0_4px_30px_rgba(0,0,0,0.4)] backdrop-blur-xl"
+          : "border-transparent bg-transparent"
       )}
     >
       <div className="mx-auto flex h-14 max-w-[1400px] items-center justify-between px-4 sm:px-6 lg:px-8">

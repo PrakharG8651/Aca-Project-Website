@@ -35,7 +35,7 @@ export default function FrontPage() {
       {/* ═══ FEED — Airbnb-style cards ═══ */}
       <section className="feed-section">
         <div className="feed-section__header">
-          <h2 className="feed-section__title">Latest Dispatches</h2>
+          <h2 className="feed-section__title">Announcements</h2>
           <Link href="/modules" className="feed-section__link">
             View All →
           </Link>

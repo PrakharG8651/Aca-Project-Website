@@ -290,7 +290,7 @@ a, button {
    ═══════════════════════════════════════════════════════ */
 
 .editorial-front {
-  min-height: 100vh;
+  min-height: 85vh;
 }
 
 /* ── HERO: GIF with title overlaid on the right ────────── */
@@ -599,7 +599,7 @@ a, button {
 
 @media (max-width: 480px) {
   .hero {
-    height: 85vh;
+    height: 90vh;
     min-height: 420px;
   }
 

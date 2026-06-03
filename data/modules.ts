@@ -7,7 +7,7 @@ export const modules: Module[] = [
   title: "Web Fundamentals",
   description:
     "Build a foundation in JavaScript, HTML, and CSS — the core trio of the web. JS is the priority; get it done first. HTML and CSS can be sharpened as you go.",
-  status: "active",
+  status: "done",
   topics: ["JavaScript", "HTML", "CSS", "DOM", "Node.js", "Tools & Server"],
   assignmentCount: 3,
   goal: "Get comfortable with JS basics and understand how HTML/CSS structure and style a web page. Set up your local environment with Node.js. Learn DOM, how to manipulate html and css with js using dom.",
@@ -73,6 +73,16 @@ export const modules: Module[] = [
       {
         title: "Git Tutorial For Dummies (15 mins)",
         url: "https://youtu.be/mJ-qvsxPHpY?si=V_6HGBsl943Qn-2s",
+        type: "video",
+      },
+      {
+        title: "Learn JavaScript CLASSES in 6 minutes!",
+        url: "https://youtu.be/U2vxAEiaVRY?si=w80PUON5Cyi_9Tow",
+        type: "video",
+      },
+      {
+        title: "JavaScript Modules in 100 Seconds",
+        url: "https://youtu.be/qgRUr-YUk1Q?si=3QbuD-pZI1D_sKWj",
         type: "video",
       },
       {

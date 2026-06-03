@@ -89,7 +89,7 @@ export function AnnouncementCard({
       } as React.CSSProperties}
       className={cn(
         "group relative overflow-hidden rounded-2xl border flex flex-col p-6 sm:p-7 gap-5",
-        "transition-all duration-300 hover:shadow-xl hover:-translate-y-1",
+        "transition-all duration-300 hover:shadow-xl hover:-translate-y-1 ",
         className
       )}
     >
