@@ -10,7 +10,7 @@ export default function FrontPage() {
       <section className="hero">
         <div className="hero__media">
           <img
-            src="/assets/art3.gif"
+            src="/assets/art.gif"
             alt="Course visual"
             className="hero__img"
             draggable={false}
