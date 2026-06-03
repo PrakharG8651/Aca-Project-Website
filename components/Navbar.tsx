@@ -86,7 +86,7 @@ export function Navbar() {
         {/* Center nav links — desktop */}
         <nav
           id="nav-links"
-          className="hidden items-center gap-0.5 rounded-full border border-[#1f1f1f]/50 bg-[#0d0d0d]/50 px-1 py-1 md:flex"
+          className="hidden items-center gap-0.5 rounded-full border border-[#1f1f1f]/50 bg-[#0d0d0d]/50 px-1 py-1 lg:flex"
         >
           {navLinks.map(({ href, label }) => {
             const isActive =
@@ -133,7 +133,7 @@ export function Navbar() {
             id="mobile-menu-toggle"
             onClick={() => setMobileOpen((prev) => !prev)}
             className={cn(
-              "flex h-8 w-8 items-center justify-center rounded-lg border transition-all duration-300 md:hidden",
+              "flex h-8 w-8 items-center justify-center rounded-lg border transition-all duration-300 lg:hidden",
               mobileOpen
                 ? "border-[#2a2a2a] bg-[#161616] text-[#f9fafb] shadow-[0_0_12px_rgba(74,222,128,0.05)]"
                 : "border-[#1f1f1f] text-[#6b7280] hover:border-[#2a2a2a] hover:text-[#f9fafb]"
@@ -175,7 +175,7 @@ export function Navbar() {
       {/* Mobile menu drawer */}
       <div
         className={cn(
-          "overflow-hidden border-t bg-[#0a0a0a]/95 backdrop-blur-xl transition-all duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] md:hidden",
+          "overflow-hidden border-t bg-[#0a0a0a]/95 backdrop-blur-xl transition-all duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] lg:hidden",
           mobileOpen ? "max-h-[400px] border-[#1f1f1f]/60 opacity-100" : "max-h-0 border-transparent opacity-0"
         )}
       >
