@@ -133,10 +133,10 @@ export function Navbar() {
             id="mobile-menu-toggle"
             onClick={() => setMobileOpen((prev) => !prev)}
             className={cn(
-              "flex h-8 w-8 items-center justify-center rounded-lg border transition-all duration-300 lg:hidden",
+              "flex h-8 w-8 items-center justify-center rounded-lg border backdrop-blur-xl transition-all duration-300 lg:hidden",
               mobileOpen
-                ? "border-[#2a2a2a] bg-[#161616] text-[#f9fafb] shadow-[0_0_12px_rgba(74,222,128,0.05)]"
-                : "border-[#1f1f1f] text-[#6b7280] hover:border-[#2a2a2a] hover:text-[#f9fafb]"
+                ? "border-[#3a3a3a] bg-[#161616]/95 text-[#f9fafb] shadow-[0_0_12px_rgba(74,222,128,0.05)]"
+                : "border-[#333333]/80 bg-[#0a0a0a]/70 text-[#d1d5db] hover:border-[#4a4a4a] hover:bg-[#161616]/90 hover:text-[#f9fafb]"
             )}
             aria-label="Toggle navigation menu"
             aria-expanded={mobileOpen}
@@ -145,7 +145,7 @@ export function Navbar() {
               {/* Top bar */}
               <span
                 className={cn(
-                  "absolute left-0.5 right-0.5 h-px bg-current transition-all duration-300",
+                  "absolute left-0.5 right-0.5 h-[1.5px] rounded-full bg-current transition-all duration-300",
                   mobileOpen
                     ? "top-[7.5px] rotate-45"
                     : "top-1"
@@ -154,14 +154,14 @@ export function Navbar() {
               {/* Middle bar */}
               <span
                 className={cn(
-                  "absolute left-0.5 right-0.5 top-[7.5px] h-px bg-current transition-all duration-200",
+                  "absolute left-0.5 right-0.5 top-[7.5px] h-[1.5px] rounded-full bg-current transition-all duration-200",
                   mobileOpen ? "scale-x-0 opacity-0" : "opacity-100"
                 )}
               />
               {/* Bottom bar */}
               <span
                 className={cn(
-                  "absolute left-0.5 right-0.5 h-px bg-current transition-all duration-300",
+                  "absolute left-0.5 right-0.5 h-[1.5px] rounded-full bg-current transition-all duration-300",
                   mobileOpen
                     ? "top-[7.5px] -rotate-45"
                     : "top-3"

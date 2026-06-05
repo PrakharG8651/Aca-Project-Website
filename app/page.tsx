@@ -10,7 +10,7 @@ export default function FrontPage() {
       <section className="hero">
         <div className="hero__media">
           <img
-            src="/assets/art.gif"
+            src="/assets/art4.gif"
             alt="Course visual"
             className="hero__img"
             draggable={false}
@@ -31,10 +31,9 @@ export default function FrontPage() {
           </p>
           
           <div className="hero__mobile-scroll">
-            <span>Scroll for announcements</span>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M12 5v14M19 12l-7 7-7-7" />
-            </svg>
+            <div className="scroll-indicator-pill">
+              <div className="scroll-indicator-dot"></div>
+            </div>
           </div>
         </div>
       </section>
