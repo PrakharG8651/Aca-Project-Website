@@ -1,6 +1,7 @@
 import { announcements } from "@/data/announcements";
 import Link from "next/link";
 import { AnnouncementCard } from "@/components/AnnouncementCard";
+import { FaGithub, FaLinkedin, FaInstagram, FaGlobe } from "react-icons/fa";
 
 
 export default function FrontPage() {
@@ -53,6 +54,34 @@ export default function FrontPage() {
           ))}
         </div>
       </section>
+
+      {/* ═══ FOOTER ═══ */}
+      <footer className="front-footer">
+        <div className="front-footer__content">
+          <div className="front-footer__socials">
+            <a href="https://github.com/ujjwalPrakash-spike" target="_blank" rel="noopener noreferrer">
+              <FaGithub />
+              GitHub
+            </a>
+            <a href="https://www.linkedin.com/in/ujjwal-prakash-036873336/" target="_blank" rel="noopener noreferrer">
+              <FaLinkedin />
+              LinkedIn
+            </a>
+            <a href="https://www.instagram.com/ujjwal_prakash_0/" target="_blank" rel="noopener noreferrer">
+              <FaInstagram />
+              Instagram
+            </a>
+            <a href="https://ujjwalprakashdev.netlify.app/" target="_blank" rel="noopener noreferrer">
+              <FaGlobe />
+              Portfolio
+            </a>
+          </div>
+          <div className="front-footer__bottom">
+            <p className="front-footer__copy">© 2026 Ujjwal Prakash. All rights reserved.</p>
+            <p className="front-footer__disclaimer">Background art © Studio Ghibli. Not my property.</p>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }

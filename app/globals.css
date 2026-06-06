@@ -303,6 +303,7 @@ a, button {
 .scrollbar-none::-webkit-scrollbar {
   display: none;
 }
+} /* Closing @layer components */
 
 /* ═══════════════════════════════════════════════════════
    Frontpage — Hero + Compact Feed
@@ -336,7 +337,8 @@ a, button {
   object-fit: cover;
   object-position: center 30%;
   display: block;
-  filter: brightness(0.7) contrast(1.1) saturate(0.85);
+  /* Added slight sepia & hue-rotate to shift the colors slightly without ruining them */
+  filter: brightness(0.7) contrast(1.1) saturate(0.85) sepia(0.15) hue-rotate(-5deg);
 }
 
 /* Bottom fade */
@@ -679,4 +681,115 @@ a, button {
     grid-template-columns: 1fr;
   }
 }
+
+/* ═══════════════════════════════════════════════════════
+   Footer
+   ═══════════════════════════════════════════════════════ */
+
+.front-footer {
+  width: 100%;
+  padding: 60px 32px 40px;
+  background: linear-gradient(180deg, transparent 0%, rgba(15, 10, 30, 0.4) 100%);
+  border-top: 1px solid rgba(255, 255, 255, 0.03);
+  margin-top: 40px;
+}
+
+.front-footer__content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.front-footer__socials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center;
+}
+
+.front-footer__socials a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: #9ca3af;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  position: relative;
+  padding-bottom: 4px;
+  transition: color 0.3s ease;
+}
+
+.front-footer__socials a svg {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.3s ease;
+}
+
+.front-footer__socials a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: #a78bfa;
+  transition: width 0.3s ease;
+}
+
+.front-footer__socials a:hover {
+  color: #f9fafb;
+}
+
+.front-footer__socials a:hover svg {
+  transform: translateY(-2px);
+  color: #a78bfa;
+}
+
+.front-footer__socials a:hover::after {
+  width: 100%;
+}
+
+.front-footer__bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+  margin-top: 16px;
+}
+
+.front-footer__copy {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.front-footer__disclaimer {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.2);
+  letter-spacing: 0.05em;
+}
+
+@media (min-width: 768px) {
+  .front-footer__content {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  
+  .front-footer__socials {
+    justify-content: flex-start;
+  }
+  
+  .front-footer__bottom {
+    align-items: flex-end;
+    text-align: right;
+    margin-top: 0;
+  }
 }
