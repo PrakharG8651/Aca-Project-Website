@@ -2,17 +2,17 @@ import type { Announcement } from "@/types";
 
 export const announcements: Announcement[] = [
   {
-    id: "ann-003",
-    title: "Understand mandatory Js concepts",
-    goal: "Before the next lecture please go through the week 2 videos in order. ",
+    id: "ann-004",
+    title: "Approaching assignment 2",
+    goal: "I still need one lecture to make you understand how different libraires work.",
     content:
-      "Try to understand Promises, callbacks, async-await and fetch will be covered in next lecture. The next lecture will cover some git basics, along with js concepts and making request from web. These are really important topics before that we can't proceed.",
+      "Attend the next lecture, you will get to know how different libraries work, how to apporach, to how import and export code among different files and how software is built in general.",
     author: "Ujjwal Prakash",
     role: "Mentor",
-    date: "2026-05-26",
+    date: "2026-06-06",
     time: "22:00",
     priority: "high",
-    tags: ["lecture-prep", "week-2", "Async Js"],
+    tags: ["lecture-prep", "week-2", "Assignment-2"],
   },
   
   
