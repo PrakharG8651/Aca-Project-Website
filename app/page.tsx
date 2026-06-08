@@ -30,6 +30,14 @@ export default function FrontPage() {
           <p className="hero__sub">
             10-week full-stack engineering bootcamp.
           </p>
+          <div className="flex flex-wrap gap-4 mt-8 animate-fade-in-up" style={{ animationDelay: '200ms' }}>
+            <Link href="/modules" className="inline-flex items-center justify-center h-12 px-8 rounded-full bg-foreground text-background font-medium transition-transform duration-300 hover:scale-105 hover:shadow-lg hover:shadow-foreground/20">
+              Start Learning
+            </Link>
+            <Link href="/roadmap" className="inline-flex items-center justify-center h-12 px-8 rounded-full border border-border/50 bg-background/50 backdrop-blur-md font-medium transition-all duration-300 hover:bg-secondary/80 hover:border-border hover:scale-105">
+              View Roadmap
+            </Link>
+          </div>
           
           <div className="hero__mobile-scroll">
             <div className="scroll-indicator-pill">

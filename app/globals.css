@@ -793,3 +793,22 @@ a, button {
     margin-top: 0;
   }
 }
+
+/* ═══════════════════════════════════════════════════════
+   Roadmap SVG Animations
+   ═══════════════════════════════════════════════════════ */
+
+@keyframes pathDraw {
+  0% {
+    stroke-dashoffset: 2000;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.animate-path-draw {
+  stroke-dasharray: 2000;
+  stroke-dashoffset: 2000;
+  animation: pathDraw 4s ease-in-out forwards;
+}
