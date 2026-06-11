@@ -7,15 +7,33 @@ import { FaGithub, FaLinkedin, FaInstagram, FaGlobe } from "react-icons/fa";
 export default function FrontPage() {
   return (
     <div id="page-front" className="editorial-front">
-      {/* ═══ HERO — GIF with title overlaid on the right ═══ */}
+      {/* ═══ HERO — video background with title overlaid on the right ═══ */}
+      {/* To revert to GIF: remove the <video> block below and uncomment the <img> block */}
       <section className="hero">
         <div className="hero__media">
+          {/* ── GIF version (commented out) ──
           <img
             src="/assets/art4.gif"
             alt="Course visual"
             className="hero__img"
             draggable={false}
           />
+          */}
+
+          {/* ── Optimised video version (WebM VP9 → MP4 H.264 fallback) ── */}
+          <video
+            className="hero__img"
+            autoPlay
+            loop
+            muted
+            playsInline
+          >
+            {/* WebM is smaller & more efficient; Chrome/Firefox/Edge use this */}
+            <source src="/assets/background_opt.webm" type="video/webm" />
+            {/* MP4 H.264 fallback for Safari & older browsers */}
+            <source src="/assets/background_opt.mp4" type="video/mp4" />
+          </video>
+
           <div className="hero__fade" />
           <div className="hero__fade-right" />
         </div>

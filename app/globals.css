@@ -324,7 +324,7 @@ a, button {
   background: #0a0a0a;
 }
 
-/* GIF background */
+/* Media background (GIF or video) */
 .hero__media {
   position: absolute;
   inset: 0;
