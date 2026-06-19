@@ -54,7 +54,7 @@ export const modules: Module[] = [
     title: "JavaScript Essentials & Git Basics",
     description:
       "Explore JavaScript from the ground up. Master Asynchronous JavaScript: Callbacks, Promises & Async/Await Made, functions.",
-    status: "active",
+    status: "done",
     topics: ["Asynchronous Js", "Async/Await", "Fetch", "API", "ES6+ Syntax"],
     assignmentCount: 1,
     goal: "Write JavaScript that communicates with external APIs and handles asynchronous operations.",
