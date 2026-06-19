@@ -366,5 +366,266 @@ export const assignments: Assignment[] = [
     ],
     do_not_submit: ["node_modules", ".env", "attendance.json"],
   },
+},
+{
+  id: "REACT-A2",
+  title: "Cipher MVP — Tasks, Goals, Focus & Mood Board",
+  course: "React Fundamentals",
+  runtime: "React (Vite)",
+  difficulty: "hard",
+  estimated_time: "16–22 hours",
+  deadline: "2026-07-08",
+
+  problem_statement:
+    "Build the real Cipher front end — not a demo, something you'll actually open every day. Persists across refreshes. Tasks support subtasks and optional deadlines. Goals track progress. Focus mode runs a real countdown, optionally tied to a task. Mood board is a freeform grid. No backend yet — everything lives in localStorage.",
+
+  learning_objectives: [
+    "Before anything: finish the React basics videos — JSX, components, props, state.",
+    "useState + a custom localStorage hook. No Context, no Redux.",
+    "Derived state — grouping tasks by date happens at render time from raw data, it isn't stored as a separate 'group' field.",
+    "Self-research: useEffect for both the timer and for syncing state to localStorage.",
+    "Self-research: flat relational state (parentId references) instead of nested objects — this is how the Postgres schema will look later, so the shape should match now.",
+  ],
+
+  approach: [
+    "Sketch the component tree and the full state shape (tasks, subtasks, goals, moodItems, activeSection) before writing any code.",
+    "Build the useLocalStorage hook first, test it standalone with a dummy value before using it anywhere real.",
+    "Build TaskBoard with hardcoded data, no persistence, no grouping — just render a flat list. Confirm it renders before adding behavior.",
+    "Add quick-add (title only), then grouping (Overdue/Today/Upcoming/No date), then the date picker, then inline edit, then subtasks. One layer at a time — don't build all of P1 in one sitting.",
+    "GoalTracker and MoodBoard next, they're simpler than TaskBoard.",
+    "FocusTimer last. Isolate the countdown in a custom hook (useTimer) so the component itself is just UI.",
+    "Wire localStorage into each piece only after it works in memory. Persistence bugs are easier to find when the underlying logic already works.",
+  ],
+
+  self_research: {
+    required: [
+      {
+        topic: "useState + derived values",
+        why: "Task groups (Overdue/Today/Upcoming) aren't stored — they're computed from dueDate every render.",
+        hint: "Write a pure function groupTasks(tasks) that returns { overdue, today, upcoming, noDate }. Call it during render, don't store its output in state.",
+      },
+      {
+        topic: "Flat relational state",
+        why: "Subtasks reference a parentId instead of living nested inside their parent task.",
+        hint: "subtasks.filter(s => s.parentId === task.id) at render time. Don't nest arrays inside task objects.",
+      },
+      {
+        topic: "Controlled inputs + date input",
+        why: "Quick-add is title-only; the date picker is a secondary, optional action.",
+        hint: "<input type='date'> gives you an ISO string for free — no date library needed yet.",
+      },
+      {
+        topic: "useEffect + setInterval",
+        why: "Focus timer ticks every second.",
+        hint: "Clear the interval in the cleanup function or it leaks on unmount/re-render.",
+      },
+      {
+        topic: "useEffect + localStorage sync",
+        why: "Every section needs to survive a refresh.",
+        hint: "One effect per piece of state: read on mount (lazy initializer), write on every change.",
+      },
+      {
+        topic: "CSS transitions for completion",
+        why: "Completing a task should fade it out before it moves to the Completed section, not vanish instantly.",
+        hint: "transition: opacity 400ms + a timeout before actually removing it from the visible group.",
+      },
+    ],
+    bonus: [
+      {
+        topic: "Linking focus sessions to tasks",
+        why: "'Focus on: <task>' makes the timer actually useful instead of generic.",
+        hint: "A dropdown of incomplete tasks; selected task id stored alongside the timer state.",
+      },
+    ],
+  },
+
+  parts: [
+    {
+      id: "P0",
+      title: "Persistence layer",
+      difficulty: "medium",
+      subparts: [
+        {
+          id: "P0a",
+          title: "useLocalStorage hook",
+          description: "Generic hook: useLocalStorage(key, defaultValue) → [value, setValue], synced to localStorage on every change.",
+          concepts_used: ["custom hooks", "useEffect", "lazy state initializer"],
+        },
+        {
+          id: "P0b",
+          title: "Standalone test",
+          description: "Use it for one dummy value, confirm it survives a hard refresh, before touching real features.",
+          concepts_used: ["manual testing"],
+        },
+      ],
+    },
+    {
+      id: "P1",
+      title: "TaskBoard",
+      difficulty: "hard",
+      subparts: [
+        {
+          id: "P1a",
+          title: "Quick add",
+          description: "Single input. Enter adds a task with just a title — no date required.",
+          concepts_used: ["controlled inputs", "useState"],
+        },
+        {
+          id: "P1b",
+          title: "Grouping",
+          description: "groupTasks(tasks) returns Overdue / Today / Upcoming / No date. Computed at render, not stored.",
+          concepts_used: ["derived state", "Date comparison"],
+        },
+        {
+          id: "P1c",
+          title: "Date picker",
+          description: "Calendar icon opens a quick-picker: Today / Tomorrow / This week / Custom. Not a raw date input as the default UI.",
+          concepts_used: ["conditional rendering", "controlled date input"],
+        },
+        {
+          id: "P1d",
+          title: "Inline edit",
+          description: "Click title → editable text field. Click date pill → reopens the quick-picker.",
+          concepts_used: ["conditional rendering", "focus management"],
+        },
+        {
+          id: "P1e",
+          title: "Complete with fade",
+          description: "Checkbox click strikes through the title, fades over ~400ms, then the item moves to a collapsed Completed section.",
+          concepts_used: ["CSS transitions", "setTimeout coordination with state"],
+        },
+        {
+          id: "P1f",
+          title: "Subtasks",
+          description: "Flat subtasks array with parentId. Add/toggle/delete per parent. Progress badge (e.g. '2/5') on the parent task.",
+          concepts_used: ["flat relational state", "array filter", "derived counts"],
+          restriction: "Subtasks must NOT be nested inside task objects.",
+        },
+        {
+          id: "P1g",
+          title: "Delete",
+          description: "Removes a task and cascades — its subtasks get removed too.",
+          concepts_used: ["array filter", "cascading delete logic"],
+        },
+      ],
+    },
+    {
+      id: "P2",
+      title: "GoalTracker",
+      difficulty: "medium",
+      subparts: [
+        {
+          id: "P2a",
+          title: "GoalCard",
+          description: "Title, optional target date, progress bar.",
+          concepts_used: ["JSX", "conditional styling"],
+        },
+        {
+          id: "P2b",
+          title: "Add + edit goal",
+          description: "Add via controlled input. Click title to edit inline, same pattern as tasks.",
+          concepts_used: ["controlled inputs", "conditional rendering"],
+        },
+        {
+          id: "P2c",
+          title: "Update progress",
+          description: "+/- buttons, clamped 0–100.",
+          concepts_used: ["state updates", "clamping"],
+        },
+      ],
+    },
+    {
+      id: "P3",
+      title: "FocusTimer",
+      difficulty: "hard",
+      subparts: [
+        {
+          id: "P3a",
+          title: "useTimer hook",
+          description: "Custom hook encapsulating countdown logic — seconds remaining, isRunning, start/pause/reset.",
+          concepts_used: ["custom hooks", "useEffect", "setInterval", "cleanup"],
+        },
+        {
+          id: "P3b",
+          title: "Display + controls",
+          description: "mm:ss display, start/pause/reset buttons. Must not double-start the interval on repeated clicks.",
+          concepts_used: ["derived formatting", "guard conditions"],
+          restriction: "No external timer library.",
+        },
+      ],
+    },
+    {
+      id: "P4",
+      title: "MoodBoard",
+      difficulty: "medium",
+      subparts: [
+        {
+          id: "P4a",
+          title: "Grid layout",
+          description: "CSS grid rendering color/image items.",
+          concepts_used: ["CSS grid", "list rendering"],
+        },
+        {
+          id: "P4b",
+          title: "Add + remove item",
+          description: "Input takes a hex color or image URL. Click an item to remove it.",
+          concepts_used: ["controlled inputs", "array filter"],
+        },
+      ],
+    },
+    {
+      id: "P5",
+      title: "Dashboard",
+      difficulty: "medium",
+      subparts: [
+        {
+          id: "P5a",
+          title: "Navigation",
+          description: "Sidebar or tabs. activeSection state, persisted via useLocalStorage so it remembers where you left off.",
+          concepts_used: ["lifting state up", "localStorage"],
+        },
+        {
+          id: "P5b",
+          title: "Shared layout",
+          description: "Consistent header/nav/content structure across all four sections.",
+          concepts_used: ["component composition", "CSS layout"],
+        },
+      ],
+    },
+    {
+      id: "BONUS",
+      title: "Focus-on-task linking",
+      difficulty: "challenge",
+      optional: true,
+      description: "Dropdown in FocusTimer to select an incomplete task. Shows 'Focusing on: <task title>' during the session.",
+      concepts_used: ["cross-component state", "derived UI"],
+    },
+  ],
+
+  deliverables: {
+    required_files: [
+      "src/App.jsx",
+      "src/hooks/useLocalStorage.js",
+      "src/hooks/useTimer.js",
+      "src/components/Dashboard.jsx",
+      "src/components/TaskBoard.jsx",
+      "src/components/GoalTracker.jsx",
+      "src/components/FocusTimer.jsx",
+      "src/components/MoodBoard.jsx",
+    ],
+    bonus_files: [],
+    run_command: "npm run dev",
+    minimum_scores_required: 0,
+  },
+
+  submission: {
+    format: "Same 'assignmentFULLSTACK' repo. Same git workflow as A1/A2.",
+    include_in_submission: [
+      "Folder named 'assignment4' inside 'assignmentFULLSTACK'.",
+      "README.md: state shape diagram (tasks/subtasks/goals/moodItems), what's done vs bonus, known bugs.",
+      "Must actually persist across a hard refresh — this is graded by closing and reopening the browser, not just reading code.",
+    ],
+    do_not_submit: ["node_modules (use .gitignore)"],
+  },
 }
 ];
