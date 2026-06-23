@@ -176,4 +176,103 @@ export const modules: Module[] = [
       type: "video",
     },
   ],
-},];
+},
+
+{
+    id: "week-4",
+    week: 4,
+    title: "Backend Fundamentals: Express, PostgreSQL & Prisma",
+    description:
+    "Learn how modern backends are built. Set up an Express server, connect it to PostgreSQL using Prisma ORM, understand REST APIs, and build the foundation for Cipher's backend.",
+
+    status: "active",
+
+    topics: [
+    "Node.js Backend",
+    "Express.js",
+    "REST APIs",
+    "PostgreSQL",
+    "Prisma ORM",
+    "Database Design",
+    "Authentication Basics",
+    "Environment Variables",
+    "Docker"
+    ],
+
+    assignmentCount: 1,
+
+    goal:
+    "Build a production-ready backend foundation capable of supporting authentication, tasks, goals, and future AI features.",
+
+    learningOutcomes: [
+    "Understand the role of a backend in a full-stack application",
+    "Create an Express server and organize routes correctly",
+    "Design relational databases using PostgreSQL",
+    "Understand primary keys, foreign keys, and relationships",
+    "Connect Express to PostgreSQL using Prisma ORM",
+    "Perform CRUD operations using Prisma Client",
+    "Build and test REST API endpoints",
+    "Use environment variables securely with dotenv",
+    "Run PostgreSQL inside Docker containers",
+    "Prepare a backend architecture suitable for scaling"
+    ],
+
+    timeRequired: "8–10 hours",
+
+    resources: [
+      {
+    title: "What is REST API? (15 mins)",
+    url: "https://youtu.be/cJAyEOZQUQY?si=E0_CX_ev5czRgELn",
+    type: "video"
+    },
+    
+      {
+      title: "Docker In 100 Seconds",
+      url: "https://youtu.be/Gjnup-PuquQ",
+      type: "video"
+      },
+    {
+    title: "Docker In One Shot - Part 1 (1 hour)",
+    url: "https://youtu.be/31k6AtW-b3Y?si=_N-_pLYE1rIVYnS1",
+    type: "video"
+    },
+    
+    {
+    title: "PostgreSQL CRASH COURSE",
+    url: "https://youtu.be/zw4s3Ey8ayo?si=xgA37kF2TgEkrgpE",
+    type: "video"
+    },
+
+    {
+    title: "Learn Express JS In 35 Minutes",
+    url: "https://youtu.be/SccSCuHhOw0?si=GWRxy1b-aqfY_Cpt",
+    type: "video"
+  },{
+    title: "Express Middleware (20 mins)",
+    url: "https://youtu.be/n2c0mf1sza4?si=wD_kke5-EY77MAZG",
+    type: "video"
+  },
+  {
+    title: "Backend Complete Course (3 hours)",
+    url: "https://youtu.be/g09PoiCob4Y?si=MJTKa2FlkxQ9rU3t",
+    type: "video"
+  },
+ 
+    {
+    title: "Prisma Documentation",
+    url: "https://www.prisma.io/docs",
+    type: "documentation"
+    },
+    {
+    title: "Express Documentation",
+    url: "https://expressjs.com/",
+    type: "documentation"
+    },
+    {
+    title: "PostgreSQL Documentation",
+    url: "https://www.postgresql.org/docs/",
+    type: "documentation"
+    },
+    ]
+}
+];
