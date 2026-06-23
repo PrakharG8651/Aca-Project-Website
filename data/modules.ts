@@ -2,52 +2,52 @@ import type { Module, WeekStatus } from "@/types";
 
 export const modules: Module[] = [
   {
-    id: "week-1",
-    week: 1,
-    title: "Web Fundamentals",
-    description:
-      "Build a foundation in JavaScript, HTML, and CSS — the core trio of the web. JS is the priority; get it done first. HTML and CSS can be sharpened as you go.",
-    status: "done",
-    topics: ["JavaScript", "HTML", "CSS", "DOM", "Node.js", "Tools & Server"],
-    assignmentCount: 3,
-    goal: "Get comfortable with JS basics and understand how HTML/CSS structure and style a web page. Set up your local environment with Node.js. Learn DOM, how to manipulate html and css with js using dom.",
-    learningOutcomes: [
-      "Understand JavaScript fundamentals: variables, functions, loops, and scope",
-      "Write semantic HTML5 markup and structure pages correctly",
-      "Style pages with CSS selectors, properties, and the box model",
-      "Install and understand the role of Node.js in a web dev workflow",
-      "Inspect and debug layouts using browser DevTools",
-      "Learning DOM to manipulate html and css",
-    ],
-    timeRequired: "7–9 hours",
-    resources: [
-      {
-        title: "JS Basics (3 hours)",
-        url: "https://youtu.be/PkZNo7MFNFg?si=394XrMFzuxkTO3Eu",
-        type: "video",
-      },
-      {
-        title: "HTML & CSS Basics (4 hours)",
-        url: "https://youtu.be/HGTJBPNC-Gw?si=Lb8gjwmikMxQvpcY",
-        type: "video",
-      },
-      {
-        title: "Learn DOM Manipulation",
-        url: "https://youtu.be/y17RuWkWdn8?si=0-sGvl_DLloF7Qu6",
-        type: "video",
-      },
-      {
-        title: "What is Node.js and how it works",
-        url: "https://youtu.be/q-xS25lsN3I?si=K2BpHuKfAWt8e8VR",
-        type: "video",
-      },
-      {
-        title: "Node.js Installation",
-        url: "https://youtu.be/N6PjgN9licA?si=_lIFk-mDOd8A-EOq",
-        type: "video",
-      },
-    ],
-  },
+  id: "week-1",
+  week: 1,
+  title: "Web Fundamentals",
+  description:
+    "Build a foundation in JavaScript, HTML, and CSS — the core trio of the web. JS is the priority; get it done first. HTML and CSS can be sharpened as you go.",
+  status: "done",
+  topics: ["JavaScript", "HTML", "CSS", "DOM", "Node.js", "Tools & Server"],
+  assignmentCount: 3,
+  goal: "Get comfortable with JS basics and understand how HTML/CSS structure and style a web page. Set up your local environment with Node.js. Learn DOM, how to manipulate html and css with js using dom.",
+  learningOutcomes: [
+    "Understand JavaScript fundamentals: variables, functions, loops, and scope",
+    "Write semantic HTML5 markup and structure pages correctly",
+    "Style pages with CSS selectors, properties, and the box model",
+    "Install and understand the role of Node.js in a web dev workflow",
+    "Inspect and debug layouts using browser DevTools",
+    "Learning DOM to manipulate html and css"
+  ],
+  timeRequired: "7–9 hours",
+  resources: [
+    {
+      title: "JS Basics (3 hours)",
+      url: "https://youtu.be/PkZNo7MFNFg?si=394XrMFzuxkTO3Eu",
+      type: "video",
+    },
+    {
+      title: "HTML & CSS Basics (4 hours)",
+      url: "https://youtu.be/HGTJBPNC-Gw?si=Lb8gjwmikMxQvpcY",
+      type: "video",
+    },
+    {
+      title: "Learn DOM Manipulation",
+      url: "https://youtu.be/y17RuWkWdn8?si=0-sGvl_DLloF7Qu6",
+      type: "video",
+    },
+    {
+      title: "What is Node.js and how it works",
+      url: "https://youtu.be/q-xS25lsN3I?si=K2BpHuKfAWt8e8VR",
+      type: "video",
+    },
+    {
+      title: "Node.js Installation",
+      url: "https://youtu.be/N6PjgN9licA?si=_lIFk-mDOd8A-EOq",
+      type: "video",
+    },
+  ],
+},
   {
     id: "week-2",
     week: 2,
@@ -108,73 +108,171 @@ export const modules: Module[] = [
     ],
   },
   {
-    id: "week-3",
-    week: 3,
-    title: "React Deep Dive: Forms, Routing & Hooks",
+  id: "week-3",
+  week: 3,
+  title: "React Deep Dive: Forms, Routing & Hooks",
+  description:
+    "Go beyond the basics of React. Learn to handle forms and user input, manage complex state with useReducer, navigate between pages with React Router, and encapsulate logic into reusable custom hooks.",
+  status: "active",
+  topics: [
+    "React Components & JSX",
+    "useState & useEffect",
+    "Forms & Input Handling",
+    "useReducer Hook",
+    "React Router: Dynamic Routes",
+    "useNavigate Hook",
+    "Custom Hooks",
+  ],
+  assignmentCount: 1,
+  goal: "Build interactive, multi-page React apps with robust form handling and reusable hook abstractions.",
+  learningOutcomes: [
+    "Structure a React app using functional components and JSX",
+    "Manage local UI state with useState and trigger side effects with useEffect",
+    "Handle single and multiple form inputs and form submission events",
+    "Manage complex state transitions using the useReducer hook",
+    "Set up dynamic routes and programmatic navigation with React Router",
+    "Extract reusable stateful logic into custom hooks",
+  ],
+  timeRequired: "5-6 hours",
+  resources: [
+    {
+      title: "Learn React With This ONE Project (1.5 hours)",
+      url: "https://react.dev/learn",
+      type: "video",
+    },
+    { 
+      title: "Handling Input Fields In React (15 mins)",
+      url: "https://www.youtube.com/watch?v=2bCqpPDRq3s&list=PLSsAz5wf2lkK_ekd0J__44KG6QoXetZza&index=25",
+      type: "video",
+    },
+    {
+      title: "Handling Multiple Inputs In React (8 mins)",
+      url: "https://youtu.be/5FDDoHI173g?si=QTYizWQbRA_IJ0q2",
+      type: "video",
+    },
+    {
+      title: "Handling Form Submission In React (5 mins)",
+      url: "https://youtu.be/falMPMOPMAk?si=oJsTTJ4krnKkbVwk",
+      type: "video",
+    },
+    {
+      title: "useReducer Hook In React (15 mins)",
+      url: "https://youtu.be/bJlXMbMPIFY?si=VG58JW6vkdY58vYy",
+      type: "video",
+    },
+    {
+      title: "React Router Part 5 Dynamic Routes (7 mins)",
+      url: "https://youtu.be/EJVHAgmdzRY?si=7NoKlN6csxlPfeYk",
+      type: "video",
+    },
+    {
+      title: "React Router Part 6 useNavigate Hook In React (8 mins)",
+      url: "https://youtu.be/EJVHAgmdzRY?si=7NoKlN6csxlPfeYk",
+      type: "video",
+    },
+    {
+      title: "Creating Custom Hooks In React (7mins)",
+      url: "https://youtu.be/LJYZY0Hhrr4?si=0APyvJ_a13575-P2",
+      type: "video",
+    },
+  ],
+},
+
+{
+    id: "week-4",
+    week: 4,
+    title: "Backend Fundamentals: Express, PostgreSQL & Prisma",
     description:
-      "Go beyond the basics of React. Learn to handle forms and user input, manage complex state with useReducer, navigate between pages with React Router, and encapsulate logic into reusable custom hooks.",
+    "Learn how modern backends are built. Set up an Express server, connect it to PostgreSQL using Prisma ORM, understand REST APIs, and build the foundation for Cipher's backend.",
+
     status: "active",
+
     topics: [
-      "React Components & JSX",
-      "useState & useEffect",
-      "Forms & Input Handling",
-      "useReducer Hook",
-      "React Router: Dynamic Routes",
-      "useNavigate Hook",
-      "Custom Hooks",
+    "Node.js Backend",
+    "Express.js",
+    "REST APIs",
+    "PostgreSQL",
+    "Prisma ORM",
+    "Database Design",
+    "Authentication Basics",
+    "Environment Variables",
+    "Docker"
     ],
+
     assignmentCount: 1,
-    goal: "Build interactive, multi-page React apps with robust form handling and reusable hook abstractions.",
+
+    goal:
+    "Build a production-ready backend foundation capable of supporting authentication, tasks, goals, and future AI features.",
+
     learningOutcomes: [
-      "Structure a React app using functional components and JSX",
-      "Manage local UI state with useState and trigger side effects with useEffect",
-      "Handle single and multiple form inputs and form submission events",
-      "Manage complex state transitions using the useReducer hook",
-      "Set up dynamic routes and programmatic navigation with React Router",
-      "Extract reusable stateful logic into custom hooks",
+    "Understand the role of a backend in a full-stack application",
+    "Create an Express server and organize routes correctly",
+    "Design relational databases using PostgreSQL",
+    "Understand primary keys, foreign keys, and relationships",
+    "Connect Express to PostgreSQL using Prisma ORM",
+    "Perform CRUD operations using Prisma Client",
+    "Build and test REST API endpoints",
+    "Use environment variables securely with dotenv",
+    "Run PostgreSQL inside Docker containers",
+    "Prepare a backend architecture suitable for scaling"
     ],
-    timeRequired: "5-6 hours",
+
+    timeRequired: "8–10 hours",
+
     resources: [
       {
-        title: "Learn React With This ONE Project (1.5 hours)",
-        url: "https://youtu.be/9aTRnV6g0eQ?si=7CGkH3Dmi0qnpnUL",
-        type: "video",
-      },
+    title: "What is REST API? (15 mins)",
+    url: "https://youtu.be/cJAyEOZQUQY?si=E0_CX_ev5czRgELn",
+    type: "video"
+    },
+    
       {
-        title: "Handling Input Fields In React (15 mins)",
-        url: "https://www.youtube.com/watch?v=2bCqpPDRq3s&list=PLSsAz5wf2lkK_ekd0J__44KG6QoXetZza&index=25",
-        type: "video",
+      title: "Docker In 100 Seconds",
+      url: "https://youtu.be/Gjnup-PuquQ",
+      type: "video"
       },
-      {
-        title: "Handling Multiple Inputs In React (8 mins)",
-        url: "https://youtu.be/5FDDoHI173g?si=QTYizWQbRA_IJ0q2",
-        type: "video",
-      },
-      {
-        title: "Handling Form Submission In React (5 mins)",
-        url: "https://youtu.be/falMPMOPMAk?si=oJsTTJ4krnKkbVwk",
-        type: "video",
-      },
-      {
-        title: "useReducer Hook In React (15 mins)",
-        url: "https://youtu.be/bJlXMbMPIFY?si=VG58JW6vkdY58vYy",
-        type: "video",
-      },
-      {
-        title: "React Router Part 5 Dynamic Routes (7 mins)",
-        url: "https://youtu.be/EJVHAgmdzRY?si=7NoKlN6csxlPfeYk",
-        type: "video",
-      },
-      {
-        title: "React Router Part 6 useNavigate Hook In React (8 mins)",
-        url: "https://youtu.be/EJVHAgmdzRY?si=7NoKlN6csxlPfeYk",
-        type: "video",
-      },
-      {
-        title: "Creating Custom Hooks In React (7mins)",
-        url: "https://youtu.be/LJYZY0Hhrr4?si=0APyvJ_a13575-P2",
-        type: "video",
-      },
-    ],
+    {
+    title: "Docker In One Shot - Part 1 (1 hour)",
+    url: "https://youtu.be/31k6AtW-b3Y?si=_N-_pLYE1rIVYnS1",
+    type: "video"
+    },
+    
+    {
+    title: "PostgreSQL CRASH COURSE",
+    url: "https://youtu.be/zw4s3Ey8ayo?si=xgA37kF2TgEkrgpE",
+    type: "video"
+    },
+
+    {
+    title: "Learn Express JS In 35 Minutes",
+    url: "https://youtu.be/SccSCuHhOw0?si=GWRxy1b-aqfY_Cpt",
+    type: "video"
+  },{
+    title: "Express Middleware (20 mins)",
+    url: "https://youtu.be/n2c0mf1sza4?si=wD_kke5-EY77MAZG",
+    type: "video"
   },
+  {
+    title: "Backend Complete Course (3 hours)",
+    url: "https://youtu.be/g09PoiCob4Y?si=MJTKa2FlkxQ9rU3t",
+    type: "video"
+  },
+ 
+    {
+    title: "Prisma Documentation",
+    url: "https://www.prisma.io/docs",
+    type: "documentation"
+    },
+    {
+    title: "Express Documentation",
+    url: "https://expressjs.com/",
+    type: "documentation"
+    },
+    {
+    title: "PostgreSQL Documentation",
+    url: "https://www.postgresql.org/docs/",
+    type: "documentation"
+    },
+    ]
+}
 ];

@@ -4,8 +4,7 @@ export const resources: Resource[] = [
   {
     id: "res-001",
     title: "Js Basics (3 hours)",
-    description:
-      "This is js guide. Js will the most important language for the course. Complete it before anything. Html and Css you can sharpen along the way",
+    description: "This is js guide. Js will the most important language for the course. Complete it before anything. Html and Css you can sharpen along the way",
     url: "https://youtu.be/PkZNo7MFNFg?si=394XrMFzuxkTO3Eu",
     tag: "video",
     tagColor: "#4ade80",
@@ -15,15 +14,14 @@ export const resources: Resource[] = [
   {
     id: "res-002",
     title: "HTML & CSS Basics (4 hours)",
-    description:
-      "Don't watch it blindly, learn it. You will for sure need it week 2",
+    description: "Don't watch it blindly, learn it. You will for sure need it week 2",
     url: "https://youtu.be/HGTJBPNC-Gw?si=Lb8gjwmikMxQvpcY",
     tag: "video",
     tagColor: "#60a5fa",
     week: 1,
   },
-
-  {
+  
+    {
     id: "res-003",
     title: "What is Node.js and how it works",
     description: "Explanation of how node js works.",
@@ -35,8 +33,7 @@ export const resources: Resource[] = [
   {
     id: "res-003",
     title: "Node.js Installattion",
-    description:
-      "What is node js and how it works will be explained in the lecutre.",
+    description: "What is node js and how it works will be explained in the lecutre.",
     url: "https://youtu.be/N6PjgN9licA?si=_lIFk-mDOd8A-EOq",
     tag: "video",
     tagColor: "#b2cdeeff",
@@ -45,47 +42,43 @@ export const resources: Resource[] = [
   {
     id: "res-005",
     title: "Learn DOM Manipulation",
-    description:
-      "How to manipulate html and css from js. Its super important for react js.",
+    description: "How to manipulate html and css from js. Its super important for react js.",
     url: "https://youtu.be/y17RuWkWdn8?si=gzH2lkf55IKsIH1y",
     tag: "video",
     tagColor: "#5d7e5eff",
     week: 1,
   },
   {
-    id: "res-006",
-    title: "Git Tutorial For Dummies",
-    description:
-      "15-minute crash course covering Git fundamentals — init, commit, push, and branching basics.",
-    url: "https://youtu.be/mJ-qvsxPHpY?si=V_6HGBsl943Qn-2s",
-    tag: "video",
-    tagColor: "#60a5fa",
-    week: 2,
-  },
-  {
-    id: "res-007",
-    title: "Learn JavaScript CLASSES in 6 minutes!",
-    description:
-      "Learn simple OOPS for Javascript and how make objects out of it.",
-    url: "https://youtu.be/U2vxAEiaVRY?si=w80PUON5Cyi_9Tow",
-    tag: "video",
-    tagColor: "#5d7e5eff",
-    week: 2,
-  },
-  {
-    id: "res-008",
-    title: "JavaScript Modules in 100 Seconds",
-    description: "Js modules teach you how the imports and exports work in js",
-    url: "https://youtu.be/qgRUr-YUk1Q?si=3QbuD-pZI1D_sKWj",
-    tag: "video",
-    tagColor: "#60a5fa",
-    week: 2,
-  },
+  id: "res-006",
+  title: "Git Tutorial For Dummies",
+  description: "15-minute crash course covering Git fundamentals — init, commit, push, and branching basics.",
+  url: "https://youtu.be/mJ-qvsxPHpY?si=V_6HGBsl943Qn-2s",
+  tag: "video",
+  tagColor: "#60a5fa",
+  week: 2,
+},
+{
+  id: "res-007",
+  title: "Learn JavaScript CLASSES in 6 minutes!",
+  description: "Learn simple OOPS for Javascript and how make objects out of it.",
+  url: "https://youtu.be/U2vxAEiaVRY?si=w80PUON5Cyi_9Tow",
+  tag: "video",
+  tagColor: "#5d7e5eff",
+  week: 2,
+},
+{
+  id: "res-008",
+  title: "JavaScript Modules in 100 Seconds",
+  description: "Js modules teach you how the imports and exports work in js",
+  url: "https://youtu.be/qgRUr-YUk1Q?si=3QbuD-pZI1D_sKWj",
+  tag: "video",
+  tagColor: "#60a5fa",
+  week: 2,
+},
   {
     id: "res-009",
     title: "Master Asynchronous JavaScript",
-    description:
-      "45-minute deep dive into async JS — event loop, callbacks, Promises, and async/await.",
+    description: "45-minute deep dive into async JS — event loop, callbacks, Promises, and async/await.",
     url: "https://youtu.be/2pHQdjgSVUk?si=3ra1VoMAXsjn8N0M",
     tag: "video",
     tagColor: "#60a5fa",
@@ -94,8 +87,7 @@ export const resources: Resource[] = [
   {
     id: "res-010",
     title: "Node.js Ultimate Beginner's Guide in 7 Easy Steps",
-    description:
-      "20-minute intro to Node.js — runtime basics, npm, and running JS outside the browser.",
+    description: "20-minute intro to Node.js — runtime basics, npm, and running JS outside the browser.",
     url: "https://youtu.be/ENrzD9HAZK4?si=4NmEgZcmRcQSNMxu",
     tag: "video",
     tagColor: "#60a5fa",
@@ -104,8 +96,7 @@ export const resources: Resource[] = [
   {
     id: "res-011",
     title: "Learn Fetch API",
-    description:
-      "6-minute focused walkthrough of the Fetch API — making GET requests and handling JSON responses.",
+    description: "6-minute focused walkthrough of the Fetch API — making GET requests and handling JSON responses.",
     url: "https://youtu.be/cuEtnrL9-H0?si=tX5o3NvZQos7IE-G",
     tag: "video",
     tagColor: "#60a5fa",
@@ -114,19 +105,17 @@ export const resources: Resource[] = [
   {
     id: "res-012",
     title: "RESTful APIs Explained",
-    description:
-      "12-minute overview of REST architecture — endpoints, HTTP methods, status codes, and JSON conventions.",
+    description: "12-minute overview of REST architecture — endpoints, HTTP methods, status codes, and JSON conventions.",
     url: "https://youtu.be/-MTSQjw5DrM?si=T9nHYLtBxTpxpeJc",
     tag: "video",
     tagColor: "#60a5fa",
     week: 2,
   },
-  {
+   {
     id: "res-013",
     title: "Learn React With This ONE Project (1.5 hours)",
-    description:
-      "Build a real project from scratch. Covers components, JSX, props, useState, and useEffect. Start here before anything else this week.",
-    url: "https://youtu.be/9aTRnV6g0eQ?si=7CGkH3Dmi0qnpnUL",
+    description: "Build a real project from scratch. Covers components, JSX, props, useState, and useEffect. Start here before anything else this week.",
+    url: "https://react.dev/learn",
     tag: "video",
     tagColor: "#60a5fa",
     week: 3,
@@ -134,8 +123,7 @@ export const resources: Resource[] = [
   {
     id: "res-014",
     title: "Handling Input Fields In React (15 mins)",
-    description:
-      "How to wire up a single input field to React state. Foundation for every form you'll build.",
+    description: "How to wire up a single input field to React state. Foundation for every form you'll build.",
     url: "https://www.youtube.com/watch?v=2bCqpPDRq3s&list=PLSsAz5wf2lkK_ekd0J__44KG6QoXetZza&index=25",
     tag: "video",
     tagColor: "#60a5fa",
@@ -144,8 +132,7 @@ export const resources: Resource[] = [
   {
     id: "res-015",
     title: "Handling Multiple Inputs In React (8 mins)",
-    description:
-      "Extend single input handling to forms with multiple fields using a single onChange handler.",
+    description: "Extend single input handling to forms with multiple fields using a single onChange handler.",
     url: "https://youtu.be/5FDDoHI173g?si=QTYizWQbRA_IJ0q2",
     tag: "video",
     tagColor: "#60a5fa",
@@ -154,8 +141,7 @@ export const resources: Resource[] = [
   {
     id: "res-016",
     title: "Handling Form Submission In React (5 mins)",
-    description:
-      "How to handle onSubmit, prevent default browser behavior, and process form data in React.",
+    description: "How to handle onSubmit, prevent default browser behavior, and process form data in React.",
     url: "https://youtu.be/falMPMOPMAk?si=oJsTTJ4krnKkbVwk",
     tag: "video",
     tagColor: "#60a5fa",
@@ -164,8 +150,7 @@ export const resources: Resource[] = [
   {
     id: "res-017",
     title: "useReducer Hook In React (15 mins)",
-    description:
-      "When useState gets messy, useReducer takes over. Learn action-based state management without Redux.",
+    description: "When useState gets messy, useReducer takes over. Learn action-based state management without Redux.",
     url: "https://youtu.be/bJlXMbMPIFY?si=VG58JW6vkdY58vYy",
     tag: "video",
     tagColor: "#60a5fa",
@@ -174,8 +159,7 @@ export const resources: Resource[] = [
   {
     id: "res-018",
     title: "React Router Part 5 — Dynamic Routes (7 mins)",
-    description:
-      "Build routes that take URL parameters — essential for detail pages and multi-page apps.",
+    description: "Build routes that take URL parameters — essential for detail pages and multi-page apps.",
     url: "https://youtu.be/EJVHAgmdzRY?si=7NoKlN6csxlPfeYk",
     tag: "video",
     tagColor: "#60a5fa",
@@ -184,8 +168,7 @@ export const resources: Resource[] = [
   {
     id: "res-019",
     title: "React Router Part 6 — useNavigate Hook (8 mins)",
-    description:
-      "Programmatic navigation in React — redirect users after form submission or auth checks.",
+    description: "Programmatic navigation in React — redirect users after form submission or auth checks.",
     url: "https://youtu.be/EJVHAgmdzRY?si=7NoKlN6csxlPfeYk",
     tag: "video",
     tagColor: "#60a5fa",
@@ -194,13 +177,104 @@ export const resources: Resource[] = [
   {
     id: "res-020",
     title: "Creating Custom Hooks In React",
-    description:
-      "Extract repeated stateful logic into reusable hooks. This is how you write clean, scalable React.",
+    description: "Extract repeated stateful logic into reusable hooks. This is how you write clean, scalable React.",
     url: "https://youtu.be/LJYZY0Hhrr4?si=0APyvJ_a13575-P2",
     tag: "video",
     tagColor: "#60a5fa",
     week: 3,
   },
+  {
+id: "res-021",
+title: "What is REST API? (15 mins)",
+description: "Learn what REST APIs are, how clients and servers communicate, HTTP methods, status codes, and JSON responses.",
+url: "https://youtu.be/cJAyEOZQUQY?si=E0_CX_ev5czRgELn",
+tag: "video",
+tagColor: "#60a5fa",
+week: 4,
+},
+{
+id: "res-022",
+title: "Docker In 100 Seconds",
+description: "Quick introduction to Docker containers and why developers use them.",
+url: "https://youtu.be/Gjnup-PuquQ",
+tag: "video",
+tagColor: "#60a5fa",
+week: 4,
+},
+{
+id: "res-023",
+title: "Docker In One Shot - Part 1 (1 hour)",
+description: "Learn Docker fundamentals, images, containers, volumes, networks, and Docker Compose.",
+url: "https://youtu.be/31k6AtW-b3Y?si=_N-_pLYE1rIVYnS1",
+tag: "video",
+tagColor: "#60a5fa",
+week: 4,
+},
+{
+id: "res-024",
+title: "PostgreSQL Crash Course",
+description: "Learn relational databases, tables, rows, SQL queries, relationships, and PostgreSQL fundamentals.",
+url: "https://youtu.be/zw4s3Ey8ayo?si=xgA37kF2TgEkrgpE",
+tag: "video",
+tagColor: "#60a5fa",
+week: 4,
+},
+{
+id: "res-025",
+title: "Learn Express JS In 35 Minutes",
+description: "Build your first backend server with Express, routes, middleware, and request handling.",
+url: "https://youtu.be/SccSCuHhOw0?si=GWRxy1b-aqfY_Cpt",
+tag: "video",
+tagColor: "#60a5fa",
+week: 4,
+},
+{
+id: "res-026",
+title: "Express Middleware (20 mins)",
+description: "Understand middleware, the request lifecycle, and how authentication works in Express.",
+url: "https://youtu.be/n2c0mf1sza4?si=wD_kke5-EY77MAZG",
+tag: "video",
+tagColor: "#60a5fa",
+week: 4,
+},
+{
+id: "res-027",
+title: "Backend Complete Course (3 hours)",
+description: "Comprehensive backend development walkthrough covering APIs, Express, databases, authentication, and project structure.",
+url: "https://youtu.be/g09PoiCob4Y?si=MJTKa2FlkxQ9rU3t",
+tag: "video",
+tagColor: "#60a5fa",
+week: 4,
+},
+{
+id: "res-028",
+title: "Prisma Documentation",
+description: "Official Prisma documentation covering schema design, migrations, queries, and relations.",
+url: "https://www.prisma.io/docs",
+tag: "documentation",
+tagColor: "#4ade80",
+week: 4,
+},
+{
+id: "res-029",
+title: "Express Documentation",
+description: "Official Express documentation covering routing, middleware, request handling, and deployment.",
+url: "https://expressjs.com/",
+tag: "documentation",
+tagColor: "#4ade80",
+week: 4,
+},
+{
+id: "res-030",
+title: "PostgreSQL Documentation",
+description: "Official PostgreSQL documentation covering SQL, indexing, constraints, and database administration.",
+url: "https://www.postgresql.org/docs/",
+tag: "documentation",
+tagColor: "#4ade80",
+week: 4,
+}
+
+
 
   // // ── Week 2: JavaScript ──────────────────────────────────
   // {

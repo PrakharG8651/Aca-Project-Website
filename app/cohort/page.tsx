@@ -2,6 +2,7 @@
 
 import { useState, useMemo } from "react";
 import { getUniqueCohortMembers } from "@/data/cohort";
+import { GithubIcon } from "@/components/icons/lucide-github";
 
 const members = getUniqueCohortMembers();
 
@@ -381,9 +382,29 @@ export default function CohortPage() {
                       overflow: "hidden",
                       textOverflow: "ellipsis",
                       lineHeight: 1.3,
+                      display: "flex",
+                      alignItems: "center",
+                      gap: 8,
                     }}
                   >
-                    {m.name}
+                    <span>{m.name}</span>
+                    {m.repositoryUrl && (
+                      <a
+                        href={`https://${m.repositoryUrl}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style={{
+                          display: "inline-flex",
+                          color: "#9ca3af",
+                          transition: "color 0.2s ease",
+                        }}
+                        onMouseEnter={(e) => (e.currentTarget.style.color = "#f9fafb")}
+                        onMouseLeave={(e) => (e.currentTarget.style.color = "#9ca3af")}
+                        title="View GitHub Repository"
+                      >
+                        <GithubIcon size={14} />
+                      </a>
+                    )}
                   </div>
                   <div
                     style={{
